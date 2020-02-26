@@ -60,7 +60,7 @@ nrow(dece.valid)
 dece.pts.present = dece.train %>%
   group_by(year, plot) %>%
   summarise(n.obs = n()) %>%
-  rbind(pts.per %>% select(year, plot) %>% mutate(n.obs = 0)) %>%
+  rbind(pts.per %>% filter(year %in% 1989:2014) %>% select(year, plot) %>% mutate(n.obs = 0)) %>%
   group_by(year, plot) %>%
   summarise(n.obs = sum(n.obs)) %>%
   ungroup()
@@ -71,7 +71,7 @@ table(dece.pts.present$n.obs)
 dece.pts.present.val = dece.valid %>%
   group_by(year, plot) %>%
   summarise(n.obs = n()) %>%
-  rbind(pts.per %>% select(year, plot) %>% mutate(n.obs = 0)) %>%
+  rbind(pts.per %>% filter(year %in% 2015:2017) %>% select(year, plot) %>% mutate(n.obs = 0)) %>%
   group_by(year, plot) %>%
   summarise(n.obs = sum(n.obs)) %>%
   ungroup()
