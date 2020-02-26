@@ -104,3 +104,10 @@ veg.tb %>%
   write.csv(row.names = FALSE,
             file = '01_process_data/output/veg_focals_top_sans96.csv')
 
+# Which points were sampled at all? This is needed for a binomial model.
+
+veg.tb %>%
+  distinct(year, plot, point) %>%
+  write.csv(row.names = FALSE,
+            file = '01_process_data/output/veg_points_sampled_all.csv')
+
