@@ -131,12 +131,10 @@ rmse.dece.rf.null
 # Huge reduction in RMSE.
 # Continue with this random effect.
 
-
-# A model with slope and plot-level random effect
-# NOTE: rank-deficient model somehow? IDK how this is happening.
-dece.slp = glm(cbind(n.obs, 100 - n.obs) ~ Slope + (1 | plot),
-               family = 'binomial',
-               data = dece.pts.present)
+# A model with slope and plot-level random effects
+dece.slp = glmer(cbind(n.obs, 100 - n.obs) ~ Slope + (1 | plot),
+                 family = 'binomial',
+                 data = dece.pts.present)
 summary(dece.slp)
 
 rmse.dece.slp = rmse(x = dece.pts.present.val$n.obs,
@@ -144,19 +142,11 @@ rmse.dece.slp = rmse(x = dece.pts.present.val$n.obs,
                                            newdata = dece.pts.present.val,
                                            type = 'response'))
 rmse.dece.slp
+# 9.687705
+# Not very helpful.
+# Little evidence that slope is helpful.
 
-dece.rt.null = glmer(cbind(n.obs, 100 - n.obs) ~ (1 | year),
-                     family = 'binomial',
-                     data = dece.pts.present)
-summary(dece.rt.null)
 
-rmse.dece.rt.null = rmse(x = dece.pts.present.val$n.obs,
-                         xpred = 100 * predict(dece.rt.null, newdata = dece.pts.present.val,
-                                         type = 'response',
-                                         re.form = NA))
-rmse.dece.rt.null
-
-# Duh
 
 ##### Try with another species
 
