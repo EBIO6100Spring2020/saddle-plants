@@ -183,7 +183,37 @@ gero.null = glm(cbind(n.obs, 100 - n.obs) ~ 1,
                 data = gero.pts.present)
 fitted.values(gero.null)[1]
 
-rmse.gero.null = rmse(x = gero.pts.present.val,
-                      xpred = predict(gero.null, gero.pts.present.val))
+rmse.gero.null = rmse(x = gero.pts.present.val$n.obs,
+                      xpred = 100 * predict(gero.null, 
+                                            gero.pts.present.val,
+                                            type = 'response'))
 rmse.gero.null
-# wtf That is huge
+# 16.457
+
+# A null model for GEROT with a random effect for plot
+gero.rf.null = glmer(cbind(n.obs, 100 - n.obs) ~ 1 + (1 | plot),
+                     family = 'binomial',
+                     data = gero.pts.present)
+
+rmse.gero.rf.null = rmse(x = gero.pts.present.val$n.obs,
+                         xpred = 100 * predict(gero.rf.null,
+                                               gero.pts.present.val,
+                                               type = 'response'))
+rmse.gero.rf.null
+# 4.7764
+
+# Now, try a model with slope.
+
+gero.slp = glmer(cbind(n.obs, 100 - n.obs) ~ Slope + (1 | plot),
+                 family = 'binomial',
+                 data = gero.pts.present)
+summary(gero.slp)
+# n.b. slope not informative.
+
+rmse.gero.slp = rmse(x = gero.pts.present.val$n.obs,
+                     xpred = 100 * predict(gero.slp,
+                                           gero.pts.present.val,
+                                           type = 'response'))
+rmse.gero.slp
+# 4.7764
+# model is basically identical to a model without slope
