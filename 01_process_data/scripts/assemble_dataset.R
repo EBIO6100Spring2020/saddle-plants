@@ -13,10 +13,17 @@ veg.focs = read.csv('01_process_data/output/veg_focals_top_sans96.csv')
 
 # Spatial data associated with each plot
 # (note: these are assumed to not change over time)
-spatial.data = read.csv('00_raw_data/avg_NDVI_stake_values2.csv')
+spatial.data = read.csv('00_raw_data/spatial_physical_data/Point_attributes.csv')
 
 # Maximum snow depth associated with each point, 1993 - 2019
 max.snow = read.csv('01_process_data/output/nwt_saddle_max_snowdepth.csv')
+
+# NDVI calculated by Sean
+ndvi.data = read.csv('00_raw_data/avg_NDVI_stake_values2.csv')
+# I'm not sure what is going on in here.
+
+# NPP (and veg type) data
+npp.data = read.csv('01_process_data/output/saddle_npp.csv')
 
 ##### Generate plot-level summary statistics
 
@@ -71,4 +78,46 @@ veg.n.obs = veg.focs %>%
   group_by(species, year, plot) %>%
   summarise(n.obs = sum(n.obs))
 
+##### Process other data frames which need to be processed.
+
+# Not sure if this will be of use, or if this is statistically rigorous, but
+# because there are multiple samples of NPP within some of these measurements
+# (agh!) take the mean for each plot.
+
+npp.clean = npp %>%
+  select(veg_class, plotid, year, NPP) %>%
+  group_by(plotid, year) %>%
+  summarise(mNPP = mean(NPP),
+            veg_class = veg_class[1])
+
+head(npp.clean)
+
 ##### Now, merge in the number of observations with the relevant plot-level predictorss.
+
+veg.n.all = veg.n.obs %>%
+  merge(y = spatial.data %>% select(SDL_GRDP, GPS_HEIGHT, Aspect, Slope),
+        by.x = 'plot', by.y = 'SDL_GRDP',
+        all.x = TRUE) %>%
+  merge(y = max.snow, 
+        by.x = c("plot", "year"), by.y = c("point_ID", "season"),
+        all.x = TRUE) %>%
+  merge(y = npp.clean,
+        by.x = c('plot', 'year'), by.y = c('plotid', 'year'),
+        all.x = TRUE) %>%
+  arrange(species, year, plot)
+
+head(veg.n.all)
+nrow(veg.n.all)
+
+# Is anything missing?
+
+with(veg.n.all, table(year, plot)) %>%
+  as.data.frame() %>%
+  group_by(Freq) %>%
+  summarise(n = n())
+
+# Exactly one plot is missing.
+
+write.csv(veg.n.all, row.names = FALSE,
+          file = '01_process_data/output/veg_all_predictors.csv')
+
