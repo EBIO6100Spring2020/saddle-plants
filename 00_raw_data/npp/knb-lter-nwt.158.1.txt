@@ -1,0 +1,490 @@
+
+  
+    
+      uid=NWT,o=lter,dc=ecoinformatics,dc=org
+      all
+    
+    
+      public
+      read
+    
+  
+  
+    Aboveground net primary productivity data for saddle, south of saddle, and east
+			of Tvan, 1982 - ongoing. 
+    
+      Hope Humphries
+      			INSTAAR, University of Colorado
+			1560 30th Street
+			UCB 450
+			Boulder, CO 80309-0450  
+      (303) 492-2594
+      hope.humphries@colorado.edu
+    
+    
+      Niwot Ridge LTER
+      Information Manager
+      			INSTAAR, University of Colorado
+			1560 30th Street
+			UCB 450
+			Boulder, CO 80309-0450  USA
+      303-492-2594
+      lternwt@colorado.edu
+      http://niwot.colorado.edu/
+    
+    
+      Hope Humphries
+      			INSTAAR, University of Colorado
+			1560 30th Street
+			UCB 450
+			Boulder, CO 80309-0450  
+      (303) 492-2594
+      hope.humphries@colorado.edu
+      Data Contact
+    
+    
+      Niwot Ridge LTER
+      Information Manager
+      			INSTAAR, University of Colorado
+			1560 30th Street
+			UCB 450
+			Boulder, CO 80309-0450  USA
+      303-492-2594
+      lternwt@colorado.edu
+      http://niwot.colorado.edu/
+      Data Contact
+    
+    2014
+    
+      Total aboveground biomass samples were collected as part of several studies
+				conducted on Niwot Ridge between 1982 and 2011 and were combined into a single data set 
+				that contains the name of the original investigator who collected the data, the URL of 
+				the data offered on the Niwot Ridge website, the vegetation type, location, plot ID, 
+				subsample ID, plot type, size (if known), year sample was collected, and live vascular 
+				aboveground biomass. Contributing investigators were Marilyn Walker, Bill Bowman, Tim 
+				Seastedt, Katie Suding, and Hope Humphries.
+      NOTE: This LTER data portal display does not contain important maintenance/log
+				information. Please be sure to view the EML file (a text file that contains XML
+				tags) which is included in the zip archive (click on "Download zip archive") for
+				legacy maintenance/log information pertaining to each dataset. The EML file name
+				will have the following format: knb-lter-nwt.[3 digit dataset number].[version
+				number].xml. Most web browsers can parse the EML so it's easier to read. Scroll down
+				to the "maintenance" tag.
+    
+    
+      Niwot Ridge LTER
+      NWT
+      aboveground biomass
+      net primary productivity
+      production
+      live
+      vascular
+      standing crop
+      NPP
+      annual
+      saddle
+      south of saddle
+      grid point
+      nodal plot
+      subsample
+      plot size
+      vegetation class
+      primary_productivity
+    
+    
+      
+        Niwot LTER Data Policy
+         The following acknowledgment should accompany any publication or citation of
+					these data: 
+            
+               Logistical support and/or data were provided by the NSF-supported
+								Niwot Ridge (NWT) Long-Term Ecological Research (LTER) project and
+								the University of Colorado (CU) Mountain Research Station (MRS).
+							
+            
+            
+               The user of NWT LTER data agrees to provide proper acknowledgment
+								with each usage of the data. Citation of the name(s) of the
+								investigator(s) responsible for the data set, in addition to the
+								generic statement above, constitutes proper acknowledgment.
+								Author(s) (including NWT investigators) of published material that
+								makes use of previously unpublished NWT data agree to provide the
+								NWT data manager with a PDF of that material as soon as it becomes
+								available. The user of NWT data agrees not to resell or redistribute
+								shared data.
+            
+          
+        
+      
+      
+        Disclaimer
+         The NSF-supported NWT LTER project shall not be held liable for improper or
+					incorrect use of the data described and/or contained herein, nor assumes
+					liability for misuse, manipulation or distribution of the data. These data are
+					not legal documents and are not intended to be used as such. The information
+					contained in these data is dynamic and may change over time. The user of these
+					data should be aware that, while efforts have been taken to ensure that these
+					data are of the highest quality, there is no guarantee of perfection for the
+					data contained herein and the possibility of errors exists. It is the
+					responsibility of the data user to use the data appropriately and in a manner
+					consistent with the limitations of data in general and these data in particular.
+					Users assume responsibility to determine the usability of the dataset. NWT LTER
+					gives no warranty, expressed or implied, as to the accuracy, reliability, or
+					completeness of these data. It is strongly recommended that these data be
+					directly acquired from the NWT LTER server and not indirectly through other
+					sources that may have changed the data in some way. Although these data have
+					been processed successfully on computer systems at CU, no warranty expressed or
+					implied is made regarding the utility of the data on other systems for general
+					or scientific purposes, nor shall the act of distribution constitute any such
+					warranty. This disclaimer applies both to individual use of the data and
+					aggregate use with other data. 
+      
+    
+    
+      
+        http://niwot.colorado.edu/data_csvs/aboveground_npp.hh.data.csv
+      
+    
+    
+      
+        
+          
+            1982
+          
+          
+            2011
+          
+        
+      
+      
+        Study sites were located in saddle nodal plots and grid plots, south of saddle,
+					or east of Tvan.
+        
+          -105.643 
+          -105.3753 
+          40.0615 
+          39.9932 
+        
+      
+    
+    
+      
+        This data set was produced by combining biomass values from 6 existing data sets.
+					[HCH 07 July 2013]
+        begin 1982, ongoing.
+      
+    
+    
+      Information Manager
+      LTER Network Office
+      			UNM Biology Department, MSC03-2020
+			1 University of New Mexico
+			Albuquerque, NM 87131-0001  USA
+      505 277-2535
+      505 277-2541
+      tech-support@lternet.edu
+      http://www.lternet.edu
+    
+    
+      Niwot Ridge LTER
+      Information Manager
+      			Institute of Arctic and Alpine Research (INSTAAR)
+			University of Colorado
+			1560 30th Street
+			UCB 450
+			Boulder, CO 80309-0450  USA
+      303-492-2594
+      lternwt@colorado.edu
+      http://niwot.colorado.edu/
+    
+    
+      Niwot Ridge LTER
+      Information Manager
+      			Institute of Arctic and Alpine Research (INSTAAR)
+			University of Colorado
+			1560 30th Street
+			UCB 450
+			Boulder, CO 80309-0450  USA
+      303-492-2594
+      lternwt@colorado.edu
+      http://niwot.colorado.edu/
+    
+    
+      
+        
+          
+            See metadata for individual data sets for descriptions
+							of methodologies:
+            
+							http://niwot.colorado.edu/exec/.extracttool2?primprod.mw.meta.txt
+            
+							http://niwot.colorado.edu/exec/.extracttool2?saddbiom.mw.meta.txt
+            
+							http://niwot.colorado.edu/exec/.extracttool2?fertprod.wb.meta.txt
+            
+							http://niwot.colorado.edu/exec/.extracttool2?aboveground_246_biomass.wb.meta.txt
+            
+							http://niwot.colorado.edu/exec/.extracttool2?saddferb.ts.meta.txt
+            
+							http://niwot.colorado.edu/exec/.extracttool2?above_ground_biomass_nutnet_baseline.ts.meta.txt
+          
+        
+      
+    
+    
+      aboveground_npp.hh.data.csv
+      Aboveground net primary productivity data for saddle, south of saddle, and east
+				of Tvan, 1982 - ongoing. Parameters measured include: investigator, URL, vegetation class, location, plot ID, subsample, plot type,
+				plot size, year, NPP.
+      
+        aboveground_npp.hh.data.csv
+        
+          
+            1
+            \r
+            column
+            
+              ,
+            
+          
+        
+        
+          
+            https://pasta.lternet.edu/package/data/eml/knb-lter-nwt/158/1/1edf409c0b23ccfeb5ff336eae55fb4a
+          
+        
+      
+      
+        
+          investigator
+          investigator
+          investigator
+          string
+          
+            
+              
+                
+                  investigator
+                
+              
+            
+          
+          
+            NaN
+            missing
+          
+        
+        
+          URL
+          url
+          NWT website
+          string
+          
+            
+              
+                
+                  NWT website
+                
+              
+            
+          
+          
+            NaN
+            missing
+          
+        
+        
+          vegetation class
+          veg_class
+          vegetation class
+          string
+          
+            
+              
+                
+                  
+                    FF
+                    fellfield
+                  
+                  
+                    DM
+                    dry meadow
+                  
+                  
+                    MM
+                    moist meadow
+                  
+                  
+                    ST
+                    shrub tundra
+                  
+                  
+                    SB
+                    snowbed
+                  
+                  
+                    WM
+                    wet meadow
+                  
+                  
+                    SF
+                    snowfence
+                  
+                
+              
+            
+          
+          
+            NaN
+            missing
+          
+        
+        
+          location
+          location
+          location
+          string
+          
+            
+              
+                
+                  
+                    saddle
+                    inside saddle grid
+                  
+                  
+                    s of saddle
+                    south of saddle grid
+                  
+                  
+                    e of Tvan
+                    east of Tvan next to tundra lab
+                  
+                
+              
+            
+          
+          
+            NaN
+            missing
+          
+        
+        
+          plot id
+          plotid
+          plot id
+          string
+          
+            
+              
+                
+                  plot id
+                
+              
+            
+          
+          
+            NaN
+            missing
+          
+        
+        
+          subsample
+          subsample
+          subsample
+          string
+          
+            
+              
+                
+                  if > 1 sample per plot
+                
+              
+            
+          
+          
+            NaN
+            missing
+          
+        
+        
+          plot type
+          plot_type
+          plot type
+          string
+          
+            
+              
+                
+                  plot type
+                
+              
+            
+          
+          
+            NaN
+            missing
+          
+        
+        
+          plot size
+          plot_size
+          plot size
+          string
+          
+            
+              
+                
+                  size of plot in centimeters
+                
+              
+            
+          
+          
+            NaN
+            missing
+          
+        
+        
+          year
+          year
+          year
+          date
+          
+            
+              YYYY
+              
+                
+                  1982
+                  2011
+                
+              
+            
+          
+          
+            NaN
+            missing
+          
+        
+        
+          NPP
+          NPP
+          live vascular aboveground biomass
+          
+            
+              
+                gramsPerMeterSquaredPerYear
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            missing
+          
+        
+      
+    
+  

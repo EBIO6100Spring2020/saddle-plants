@@ -1,0 +1,5 @@
+Manifest file for knb-lter-nwt.158.1.zip created on Wed Nov 20 09:27:25 MST 2019
+aboveground_npp.hh.data.csv (160411 bytes)
+knb-lter-nwt.158.1.xml (22770 bytes)
+knb-lter-nwt.158.1.txt (12064 bytes)
+knb-lter-nwt.158.1.report.xml (22754 bytes)
