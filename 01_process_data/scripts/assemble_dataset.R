@@ -13,7 +13,13 @@ veg.focs = read.csv('01_process_data/output/veg_focals_top_sans96.csv')
 
 # Spatial data associated with each plot
 # (note: these are assumed to not change over time)
-spatial.data = read.csv('00_raw_data/spatial_physical_data/Point_attributes.csv')
+spatial.data1 = read.csv('00_raw_data/spatial_physical_data/Point_attributes.csv')
+
+# Another spatial dataset
+spatial.data2 = read.csv('HMSC_saddle/saddle_topo_solar.csv')
+# I don't know how this was made. It's in the HMSC folder.
+# Is this the file Cliff made?
+# It doesn't have any NAs and has more dispersion in measurements.
 
 # Maximum snow depth associated with each point, 1993 - 2019
 max.snow = read.csv('01_process_data/output/nwt_saddle_max_snowdepth.csv')
@@ -84,7 +90,7 @@ veg.n.obs = veg.focs %>%
 # because there are multiple samples of NPP within some of these measurements
 # (agh!) take the mean for each plot.
 
-npp.clean = npp %>%
+npp.clean = npp.data %>%
   select(veg_class, plotid, year, NPP) %>%
   group_by(plotid, year) %>%
   summarise(mNPP = mean(NPP),
@@ -92,11 +98,32 @@ npp.clean = npp %>%
 
 head(npp.clean)
 
+# Add suffixes to spatial data frames to distinguish between the two.
+
+# Sean's data frame.
+spatial.data1 = spatial.data1 %>%
+  select(SDL_GRDP, GPS_HEIGHT, Aspect, Slope) %>%
+  rename(plot = SDL_GRDP,
+         slope1 = Slope,
+         elev1 = GPS_HEIGHT,
+         asp1 = Aspect)
+
+# Other data frame
+spatial.data2 = spatial.data2 %>%
+  select(-c(LONGITUDE., LATITUDE.x)) %>%
+  rename(elev2 = GPS_ELEV,
+         solar = X2m.Aug.1.S,
+         slope2 = Slope,
+         asp2 = Aspect)
+
 ##### Now, merge in the number of observations with the relevant plot-level predictorss.
 
 veg.n.all = veg.n.obs %>%
-  merge(y = spatial.data %>% select(SDL_GRDP, GPS_HEIGHT, Aspect, Slope),
-        by.x = 'plot', by.y = 'SDL_GRDP',
+  merge(y = spatial.data1,
+        by = 'plot',
+        all.x = TRUE) %>%
+  merge(y = spatial.data2,
+        by = 'plot',
         all.x = TRUE) %>%
   merge(y = max.snow, 
         by.x = c("plot", "year"), by.y = c("point_ID", "season"),
