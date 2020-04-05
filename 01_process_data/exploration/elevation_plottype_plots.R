@@ -1,0 +1,57 @@
+#' ---
+#' title: "Elevation Plots"
+#' author: Scott
+#' output: github_document
+#' ---
+
+#' Plots of the Niwot Saddle community types and elevation. We have two
+#' different elevation sources (one from Sean, one from Cliff) and vegetation
+#' classes fron the NPP dataset.
+#' 
+#' Here we'll just plot the saddle to get a sense of spatial arrangement of
+#' vegetation types and elevation of the plots.
+
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+
+
+read.csv('01_process_data/output/veg_all_predictors.csv') %>%
+  distinct(plot, year, .keep_all = TRUE) %>%
+  filter(!is.na(veg_class)) %>%
+  ggplot() +
+  geom_point(aes(x = UTM_E, y = UTM_N, shape = veg_class,
+                 colour = elev1),
+             position = position_jitter(height = 5, width = 5),
+             size = 6) +
+  theme(panel.background = element_rect(fill = 'black'),
+        panel.grid = element_blank(),
+        plot.background = element_rect(fill = 'black'),
+        axis.text = element_text(colour = 'white'),
+        axis.title = element_text(colour = 'white'),
+        legend.background = element_rect(fill = 'black'),
+        legend.text = element_text(colour = 'white'),
+        legend.title = element_text(colour = 'white'),
+        legend.key = element_rect(fill = 'gray55')) +
+  scale_color_gradient(low = 'gray22', high = 'white') +
+  scale_shape_manual(values = 1:7)
+
+read.csv('01_process_data/output/veg_all_predictors.csv') %>%
+  distinct(plot, year, .keep_all = TRUE) %>%
+  filter(!is.na(veg_class)) %>%
+  ggplot() +
+  geom_point(aes(x = UTM_E, y = UTM_N, shape = veg_class,
+                 colour = elev2),
+             position = position_jitter(height = 5, width = 5),
+             size = 6) +
+  theme(panel.background = element_rect(fill = 'black'),
+        panel.grid = element_blank(),
+        plot.background = element_rect(fill = 'black'),
+        axis.text = element_text(colour = 'white'),
+        axis.title = element_text(colour = 'white'),
+        legend.background = element_rect(fill = 'black'),
+        legend.text = element_text(colour = 'white'),
+        legend.title = element_text(colour = 'white'),
+        legend.key = element_rect(fill = 'gray55')) +
+  scale_color_gradient(low = 'gray22', high = 'white') +
+  scale_shape_manual(values = 1:7)
