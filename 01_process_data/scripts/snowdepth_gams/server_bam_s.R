@@ -35,11 +35,15 @@ sndp = snowdep %>%
 
 sn.gam.s = bam(mean_depth ~ t2(jd, seas, point_ID,
                                bs = c("cc", "re", "re"),
-                               k = c(10, 12, 12),
+                               k = c(12, 10, 10),
                                m = 2,
                                full = TRUE),
                data = sndp, method = 'fREML', discrete = TRUE)
 
-sndp %>%
-  mutate(pred = predict(sn.gam.s)) %>%
-  write.csv('ouputs/sndp_bam_s_preds.csv')
+p.backbone = expand.grid(jd = 1:365,
+                         seas = unique(sndp$seas),
+                         point_ID = unique(sndp$point_ID)) %>%
+  mutate(pred = predict(sn.gam.s))
+  
+  
+write.csv(p.backbone, row.names = FALSE, file = 'outputs/sndp_bam_s_preds.csv')
