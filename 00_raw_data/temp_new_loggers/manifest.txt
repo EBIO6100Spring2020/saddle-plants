@@ -1,5 +1,5 @@
-Manifest file for knb-lter-nwt.124.3.zip created on Mon Apr 06 17:56:36 MDT 2020
-soiltemp.ss.data.csv (38559 bytes)
-knb-lter-nwt.124.3.xml (22232 bytes)
-knb-lter-nwt.124.3.txt (15495 bytes)
-knb-lter-nwt.124.3.report.xml (32053 bytes)
+Manifest file for knb-lter-nwt.405.3.zip created on Mon Apr 06 17:51:53 MDT 2020
+sdlcr23x-cr1000.daily.ml.data.csv (2563844 bytes)
+knb-lter-nwt.405.3.xml (97634 bytes)
+knb-lter-nwt.405.3.txt (50957 bytes)
+knb-lter-nwt.405.3.report.xml (37202 bytes)
