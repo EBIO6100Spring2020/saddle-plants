@@ -1,0 +1,5 @@
+Manifest file for knb-lter-nwt.413.10.zip created on Tue Oct 15 13:19:52 MDT 2019
+sdltdayv.ml.data.csv (502302 bytes)
+knb-lter-nwt.413.10.xml (15765 bytes)
+knb-lter-nwt.413.10.txt (8343 bytes)
+knb-lter-nwt.413.10.report.xml (27265 bytes)
