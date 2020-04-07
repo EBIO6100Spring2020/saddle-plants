@@ -12,7 +12,9 @@ library(mgcv)
 
 setwd('~/poorcast')
 
-sndp = read.csv(paste0('data_inputs/split_data/', filename))
+sndp = read.csv(paste0('data_inputs/split_data/', filename)) %>%
+  mutate(seas = factor(seas),
+         point_ID = factor(point_ID))
 
 sn.gam.s = bam(mean_depth ~ t2(jd, seas, point_ID,
                                bs = c("cc", "re", "re"),
