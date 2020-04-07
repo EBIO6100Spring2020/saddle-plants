@@ -1,0 +1,2357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eml:eml packageId="knb-lter-nwt.405.3"
+  system="https://pasta.edirepository.org"
+  xmlns:eml="eml://ecoinformatics.org/eml-2.1.1"
+  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://nis.lternet.edu/schemas/EML/eml-2.1.1/eml.xsd">
+  <access authSystem="https://pasta.edirepository.org/authentication"
+    order="allowFirst" scope="document" system="https://pasta.edirepository.org">
+    <allow>
+      <principal>uid=nwt,o=LTER,dc=ecoinformatics,dc=org</principal>
+      <permission>read</permission>
+      <permission>write</permission>
+    </allow>
+    <allow>
+      <principal>public</principal>
+      <permission>read</permission>
+    </allow>
+  </access>
+  <dataset>
+    <alternateIdentifier system="https://doi.org">doi:10.6073/pasta/cf8ff4f209a889b4b20a4fb48be6f1d8</alternateIdentifier>
+    <title>Climate data for saddle data loggers (CR23X and CR1000), 2000 - ongoing, daily.</title>
+    <creator>
+      <individualName>
+        <givenName>Jennifer F</givenName>
+        <surName>Morse</surName>
+      </individualName>
+      <electronicMailAddress>jennifer.f.morse@colorado.edu</electronicMailAddress>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Mark</givenName>
+        <surName>Losleben</surName>
+      </individualName>
+      <electronicMailAddress>losleben@email.arizona.edu</electronicMailAddress>
+    </creator>
+    <associatedParty>
+      <individualName>
+        <givenName>Mark</givenName>
+        <surName>Losleben</surName>
+      </individualName>
+      <electronicMailAddress>losleben@email.arizona.edu</electronicMailAddress>
+      <role>principalInvestigator</role>
+    </associatedParty>
+    <pubDate>2019-07-15</pubDate>
+    <language>English</language>
+    <abstract>Climatological data were collected from the saddle climate station on Niwot Ridge (3525 m elevation) throughout the year. From 2000-06-24 to 2012-03-24, data were recorded using a Campbell Instruments CR23X data logger. Subsequently, data were recorded using a Campbell Instruments CR1000 data logger. Maximum and minimum values were recorded instantaneously, with a sampling interval of 5 seconds. Daily means and totals were calculated from 17,280 individual measurements. The CR23X logger was programmed to generate both hourly and daily output. The CR1000 logger generated daily, hourly, and minute data until September 2014, and 10 minute and minute data thereafter.</abstract>
+    <keywordSet>
+      <keyword>barometric pressure</keyword>
+      <keyword>saddle</keyword>
+      <keyword>NWT LTER</keyword>
+      <keyword>Niwot Ridge</keyword>
+      <keyword>data logger</keyword>
+      <keyword>CR23X</keyword>
+      <keyword>CR1000</keyword>
+      <keyword>sensor</keyword>
+      <keyword>NWT signature dataset</keyword>
+    </keywordSet>
+    <keywordSet>
+      <keyword>climate</keyword>
+      <keyword>weather</keyword>
+      <keyword>meteorology</keyword>
+      <keyword>climatology</keyword>
+      <keyword>solar radiation</keyword>
+      <keyword>air temperature</keyword>
+      <keyword>relative humidity</keyword>
+      <keyword>wind speed</keyword>
+      <keyword>wind direction</keyword>
+      <keyword>soil temperature</keyword>
+      <keyword>soil moisture</keyword>
+      <keyword>long term</keyword>
+      <keywordThesaurus>LTER controlled vocabulary</keywordThesaurus>
+    </keywordSet>
+    <intellectualRights>
+      <para>
+  This information is released under the Creative Commons license -
+  Attribution - CC BY (https://creativecommons.org/licenses/by/4.0/).
+  The consumer of these data (“Data User” herein) is required to cite it
+  appropriately in any publication that results from its use. The Data
+  User should realize that these data may be actively used by others for
+  ongoing research and that coordination may be necessary to prevent
+  duplicate publication. The Data User is urged to contact the authors
+  of these data if any questions about methodology or results occur.
+  Where appropriate, the Data User is encouraged to consider
+  collaboration or co-authorship with the authors. The Data User should
+  realize that misinterpretation of data may occur if used out of
+  context of the original study. While substantial efforts are made to
+  ensure the accuracy of data and associated documentation, complete
+  accuracy of data sets cannot be guaranteed. All data are made
+  available "as is." The Data User should be aware, however,
+  that data are updated periodically and it is the responsibility of the
+  Data User to check for new versions of the data. The data authors and
+  the repository where these data were obtained shall not be liable for
+  damages resulting from any use or misinterpretation of the data. Thank
+  you.
+</para>
+    </intellectualRights>
+    <coverage>
+      <geographicCoverage>
+        <geographicDescription>Study site was the Saddle on Niwot Ridge.</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-105.589318580868</westBoundingCoordinate>
+          <eastBoundingCoordinate>-105.589154684898</eastBoundingCoordinate>
+          <northBoundingCoordinate>40.0549279448373</northBoundingCoordinate>
+          <southBoundingCoordinate>40.0547737112828</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <temporalCoverage>
+        <rangeOfDates>
+          <beginDate>
+            <calendarDate>2000-06-24</calendarDate>
+          </beginDate>
+          <endDate>
+            <calendarDate>2018-12-31</calendarDate>
+          </endDate>
+        </rangeOfDates>
+      </temporalCoverage>
+    </coverage>
+    <maintenance>
+      <description>The documentation section of this file was developed from the NWT LTER Cr21x data files metadata, as well as personal communication with Mark Losleben. The data file was put under sccs control on 2 December 2002. [TMA 02 December 2002] Data for 2002 were appended on 1 December 2004. [TMA 01 December 2004] Data for 2003 and 2004 were appended.[TMA 06 January 2005] Data for 2005 and 2006 were appended.[TMA 05 February 2008]  Data for 1 January 2007 through 7 September 2008 were appended to the data section.[TMA 9 February 2009] Data for 1 January 2008 through September 2008 were replaced and data for 1 January 2009 through December 31 2010 were appended to the data section.[HCH 12 December 2011] Data for 1 January 2011 through December 31 2012 were appended to the data section. Comments were added concerning the addition of cr1000 data to complete 2012-2013 data. NADP and UVB variables were removed. The abstract and comments were rewritten to reflect current IM practice and replacement of CR23X logger by CR1000.[HCH 12 December 2014] Data for 1 January 2013 through December 31 2013 were appended to the data section.[HCH 20 January 2015] The metadata and data ascii file names were changed to include "daily".[HCH 04 October 2015] Data for 2014 were appended. All "time of" variables were removed except time of max wind speed. Max and min variables for solar radiation, soil temp, and vol water content were also removed for consistency with 10 minute variables from which daily data were calculated starting 10 September 2014.[HCH 19 January 2016] Temperature units changed to celsius.[HCH 27 April 2017] Flag columns were added. Standard deviation of wind direction was omitted because the GCE Toolbox doesn't calculate standard deviation for angular variables. Soil moisture columns (previously vwc) were renamed.[HCH 23 February 2018] Data for 2014 through 2016 were appended; variables, keywords, methods, and columns were updated.[HCH 28 April 2018]Niwot metadata converted via script to EML[SCE 2018-09-17].Columns for new airtemp and rh measurements (hmp1, hmp2, hmp3) were added (note flagging of these new sensors has not been extensively tested and some issues may remain, notably with the rh sensor flags). Removed time_ws_max column. 2017 and 2018 data were appended [SCE/ATW 2019-07-15]Corrected EML root node; data unchanged [SCE 10 Oct 2019].</description>
+    </maintenance>
+    <contact>
+      <organizationName>Niwot Ridge LTER</organizationName>
+      <positionName>Information Manager</positionName>
+      <address>
+        <deliveryPoint>4001 Discovery Drive, UCB 450</deliveryPoint>
+        <deliveryPoint>University of Colorado</deliveryPoint>
+        <city>Boulder</city>
+        <administrativeArea>CO</administrativeArea>
+        <postalCode>80303</postalCode>
+        <country>United States</country>
+      </address>
+      <electronicMailAddress>lternwt@colorado.edu</electronicMailAddress>
+      <onlineUrl>https://nwt.lternet.edu/</onlineUrl>
+    </contact>
+    <methods>
+      <methodStep>
+        <description>
+          <para>The raw data files are archived in /data2/Datman/Rawarchive/Cr23x and /data2/Datman/Rawarchive/Cr1000 on the NWT LTER server. Prior to February 2010, the information from a web documentation form was incorporated into /data2/Datman/Rawarchive/Cr23x/SDLCR23X.TXT. A copy of the raw file was then processed to separate hourly from daily records; hourly records were archived in /data1/Datman/Climdata/Cr23x/Hourly/Archive.</para>
+          <para>Copies of the daily data files were provided to the climatologist for quality-checking. The information provided by the climatologist was then entered into the web documentation form and appended to the SDLCR23X.TXT file, and used to modify daily values for incorporation into this data set. Beginning in February 2010, the climatologist provided yearly/sub-yearly quality control information in Word documents that were the basis for modifying daily data values for this data set. CR23X hourly outputs are based on 5 second sample intervals, with 720 individual values.</para>
+          <para>In December 2012, the CR23X logger was replaced with a CR1000 logger. Daily, hourly, and minute data were collected and archived in /data2/Datman/Rawarchive/Cr1000 on the NWT LTER server. Starting in September 2014, only 10 minute and minute data were collected by the CR1000 logger (in addition to a reduced set of hourly variables for graphing). The GCE Data Toolbox was used to conduct QAQC and to produce daily and hourly timestamps from the 10 minute data. Flag columns were added at this time. All flag column values were set to "n" for 2000 through September 2014 because no QAQC flagging was conducted during this time. Flag values: n=no flag; m=missing; q=questionable; e=estimated.</para>
+          <para>Hourly infilled saddle data are available at: http://niwot.colorado.edu/data/data/infilled-climate-data-for-c1-saddle-d1-1990-2013-hourly</para>
+          <para>Metadata for Saddle climatological data from other sources can be found in the files:</para>
+          <para>https://portal.lternet.edu/nis/mapbrowse?scope=knb-lter-nwt&amp;amp;identifier=57</para>
+          <para/>
+          <para>https://portal.lternet.edu/nis/mapbrowse?scope=knb-lter-nwt&amp;amp;identifier=413</para>
+          <para>https://portal.lternet.edu/nis/mapbrowse?scope=knb-lter-nwt&amp;amp;identifier=416</para>
+          <para>https://portal.lternet.edu/nis/mapbrowse?scope=knb-lter-nwt&amp;amp;identifier=80</para>
+          <para>https://portal.lternet.edu/nis/mapbrowse?scope=knb-lter-nwt&amp;amp;identifier=81</para>
+          <para>https://portal.lternet.edu/nis/mapbrowse?scope=knb-lter-nwt&amp;amp;identifier=83</para>
+          <para>Comments provided by Mark Losleben: soil moisture is relative only; the instrument has not been calibrated.</para>
+        </description>
+      </methodStep>
+    </methods>
+    <project>
+      <title>LTER: Long-term research on the dynamics of high-elevation ecosystems -- a framework for understanding ecological responsiveness to climate change</title>
+      <personnel>
+        <organizationName>Niwot Ridge LTER</organizationName>
+        <role>pointOfContact</role>
+      </personnel>
+      <funding>National Science Foundation:1637686</funding>
+    </project>
+    <dataTable>
+      <entityName>sdlcr23x-cr1000.daily.ml.data.csv</entityName>
+      <entityDescription>Climate data for saddle data loggers (CR23X and CR1000), 2000 - ongoing, daily.</entityDescription>
+      <physical>
+        <objectName>sdlcr23x-cr1000.daily.ml.data.csv</objectName>
+        <size unit="byte">2563844</size>
+        <authentication method="MD5">4a6eb5cf2b6e0284dda6fb6a9df8bcd1</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\r\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+              <quoteCharacter>"</quoteCharacter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download">https://pasta.lternet.edu/package/data/eml/knb-lter-nwt/405/3/3db783d0ebca2472aff9a6454f56bf6a</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>LTER_site</attributeName>
+          <attributeLabel>LTER_site</attributeLabel>
+          <attributeDefinition>Niwot Ridge LTER site</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>any text</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>local_site</attributeName>
+          <attributeLabel>local_site</attributeLabel>
+          <attributeDefinition>Saddle site</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>any text</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>logger</attributeName>
+          <attributeLabel>logger</attributeLabel>
+          <attributeDefinition>data logger type (CR23X or CR1000)</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>any text</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>date</attributeName>
+          <attributeLabel>date</attributeLabel>
+          <attributeDefinition>date (yyyy-mm-dd)</attributeDefinition>
+          <storageType>dateTime</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">2000-06-24</minimum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>year</attributeName>
+          <attributeLabel>year</attributeLabel>
+          <attributeDefinition>year</attributeDefinition>
+          <storageType>dateTime</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY</formatString>
+              <dateTimePrecision>1</dateTimePrecision>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">2000</minimum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>jday</attributeName>
+          <attributeLabel>jday</attributeLabel>
+          <attributeDefinition>Julian day</attributeDefinition>
+          <storageType>integer</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>nominalDay</standardUnit>
+              </unit>
+              <precision>1</precision>
+              <numericDomain>
+                <numberType>integer</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">366</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>airtemp_max</attributeName>
+          <attributeLabel>airtemp_max</attributeLabel>
+          <attributeDefinition>maximum air temperature</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>celsius</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_airtemp_max</attributeName>
+          <attributeLabel>flag_airtemp_max</attributeLabel>
+          <attributeDefinition>flag for maximum air temperature: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>airtemp_min</attributeName>
+          <attributeLabel>airtemp_min</attributeLabel>
+          <attributeDefinition>minimum air temperature</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>celsius</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_airtemp_min</attributeName>
+          <attributeLabel>flag_airtemp_min</attributeLabel>
+          <attributeDefinition>flag for minimum air temperature: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>airtemp_avg</attributeName>
+          <attributeLabel>airtemp_avg</attributeLabel>
+          <attributeDefinition>average air temperature</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>celsius</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_airtemp_avg</attributeName>
+          <attributeLabel>flag_airtemp_avg</attributeLabel>
+          <attributeDefinition>flag for average air temperature: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>rh_max</attributeName>
+          <attributeLabel>rh_max</attributeLabel>
+          <attributeDefinition>maximum relative humidity</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>percent</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_rh_max</attributeName>
+          <attributeLabel>flag_rh_max</attributeLabel>
+          <attributeDefinition>flag for maximum relative humidity: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>rh_min</attributeName>
+          <attributeLabel>rh_min</attributeLabel>
+          <attributeDefinition>minimum relative humidity</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>percent</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_rh_min</attributeName>
+          <attributeLabel>flag_rh_min</attributeLabel>
+          <attributeDefinition>flag for minimum relative humidity: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>rh_avg</attributeName>
+          <attributeLabel>rh_avg</attributeLabel>
+          <attributeDefinition>average relative humidity</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>percent</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_rh_avg</attributeName>
+          <attributeLabel>flag_rh_avg</attributeLabel>
+          <attributeDefinition>flag for average relative humidity: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>bp_max</attributeName>
+          <attributeLabel>bp_max</attributeLabel>
+          <attributeDefinition>maximum barometric pressure</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>millibar</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_bp_max</attributeName>
+          <attributeLabel>flag_bp_max</attributeLabel>
+          <attributeDefinition>flag for maximum barometric pressure: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>bp_min</attributeName>
+          <attributeLabel>bp_min</attributeLabel>
+          <attributeDefinition>minimum barometric pressure</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>millibar</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_bp_min</attributeName>
+          <attributeLabel>flag_bp_min</attributeLabel>
+          <attributeDefinition>flag for minimum barometric pressure: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>bp_avg</attributeName>
+          <attributeLabel>bp_avg</attributeLabel>
+          <attributeDefinition>average barometric pressure</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>millibar</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_bp_avg</attributeName>
+          <attributeLabel>flag_bp_avg</attributeLabel>
+          <attributeDefinition>flag for average barometric pressure: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>ws_max</attributeName>
+          <attributeLabel>ws_max</attributeLabel>
+          <attributeDefinition>maximum wind speed</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>meterPerSecond</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_ws_max</attributeName>
+          <attributeLabel>flag_ws_max</attributeLabel>
+          <attributeDefinition>flag for maximum wind speed: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>ws_min</attributeName>
+          <attributeLabel>ws_min</attributeLabel>
+          <attributeDefinition>minimum wind speed</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>meterPerSecond</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_ws_min</attributeName>
+          <attributeLabel>flag_ws_min</attributeLabel>
+          <attributeDefinition>flag for minimum wind speed: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>ws_avg</attributeName>
+          <attributeLabel>ws_avg</attributeLabel>
+          <attributeDefinition>average wind speed</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>meterPerSecond</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_ws_avg</attributeName>
+          <attributeLabel>flag_ws_avg</attributeLabel>
+          <attributeDefinition>flag for average wind speed: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>wd</attributeName>
+          <attributeLabel>wd</attributeLabel>
+          <attributeDefinition>average wind direction</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>degree</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">360</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_wd</attributeName>
+          <attributeLabel>flag_wd</attributeLabel>
+          <attributeDefinition>flag for average wind direction: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>solrad_avg</attributeName>
+          <attributeLabel>solrad_avg</attributeLabel>
+          <attributeDefinition>average solar radiation in Watts/m2</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>wattPerMeterSquared</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_solrad_avg</attributeName>
+          <attributeLabel>flag_solrad_avg</attributeLabel>
+          <attributeDefinition>flag for average solar radiation in Watts/m2: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>solrad_tot</attributeName>
+          <attributeLabel>solrad_tot</attributeLabel>
+          <attributeDefinition>total solar radiation in MJ/m2</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>megajoulePerMeterSquared</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_solrad_tot</attributeName>
+          <attributeLabel>flag_solrad_tot</attributeLabel>
+          <attributeDefinition>flag for total solar radiation in MJ/m2: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>soiltemp_5cm_max</attributeName>
+          <attributeLabel>soiltemp_5cm_max</attributeLabel>
+          <attributeDefinition>maximum soil temperature at 5 cm depth</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>celsius</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_soiltemp_5cm_max</attributeName>
+          <attributeLabel>flag_soiltemp_5cm_max</attributeLabel>
+          <attributeDefinition>flag for total maximum soil temperature at 5 cm depth: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>soiltemp_5cm_min</attributeName>
+          <attributeLabel>soiltemp_5cm_min</attributeLabel>
+          <attributeDefinition>minimum soil temperature at 5 cm depth</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>celsius</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_soiltemp_5cm_min</attributeName>
+          <attributeLabel>flag_soiltemp_5cm_min</attributeLabel>
+          <attributeDefinition>flag for total minimum soil temperature at 5 cm depth: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>soiltemp_5cm_avg</attributeName>
+          <attributeLabel>soiltemp_5cm_avg</attributeLabel>
+          <attributeDefinition>average soil temperature at 5 cm depth</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>celsius</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_soiltemp_5cm_avg</attributeName>
+          <attributeLabel>flag_soiltemp_5cm_avg</attributeLabel>
+          <attributeDefinition>flag for average soil temperature at 5 cm depth: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>soilmoist_5cm_avg</attributeName>
+          <attributeLabel>soilmoist_5cm_avg</attributeLabel>
+          <attributeDefinition>average soil moisture at 5 cm depth (relative only - the instrument has not been calibrated)</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_soilmoist_5cm_avg</attributeName>
+          <attributeLabel>flag_soilmoist_5cm_avg</attributeLabel>
+          <attributeDefinition>flag for average soil moistureat 5 cm depth: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>airtemp_hmp1_max</attributeName>
+          <attributeLabel>airtemp_hmp1_max</attributeLabel>
+          <attributeDefinition>maximum air temperature sensor 1</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>celsius</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_airtemp_hmp1_max</attributeName>
+          <attributeLabel>flag_airtemp_hmp1_max</attributeLabel>
+          <attributeDefinition>flag for maximum air temperature sensor 1: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>airtemp_hmp1_min</attributeName>
+          <attributeLabel>airtemp_hmp1_min</attributeLabel>
+          <attributeDefinition>minimum air temperature sensor 1</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>celsius</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_airtemp_hmp1_min</attributeName>
+          <attributeLabel>flag_airtemp_hmp1_min</attributeLabel>
+          <attributeDefinition>flag for minimum air temperature sensor 1: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>airtemp_hmp1_avg</attributeName>
+          <attributeLabel>airtemp_hmp1_avg</attributeLabel>
+          <attributeDefinition>average air temperature</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>celsius</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_airtemp_hmp1_avg</attributeName>
+          <attributeLabel>flag_airtemp_hmp1_avg</attributeLabel>
+          <attributeDefinition>flag for average air temperature sensor 1: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>airtemp_hmp2_max</attributeName>
+          <attributeLabel>airtemp_hmp2_max</attributeLabel>
+          <attributeDefinition>maximum air temperature sensor 2</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>celsius</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_airtemp_hmp2_max</attributeName>
+          <attributeLabel>flag_airtemp_hmp2_max</attributeLabel>
+          <attributeDefinition>flag for maximum air temperature sensor 2: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>airtemp_hmp2_min</attributeName>
+          <attributeLabel>airtemp_hmp2_min</attributeLabel>
+          <attributeDefinition>minimum air temperature sensor 2</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>celsius</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_airtemp_hmp2_min</attributeName>
+          <attributeLabel>flag_airtemp_hmp2_min</attributeLabel>
+          <attributeDefinition>flag for minimum air temperature sensor 2: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>airtemp_hmp2_avg</attributeName>
+          <attributeLabel>airtemp_hmp2_avg</attributeLabel>
+          <attributeDefinition>average air temperature sensor 2</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>celsius</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_airtemp_hmp2_avg</attributeName>
+          <attributeLabel>flag_airtemp_hmp2_avg</attributeLabel>
+          <attributeDefinition>flag for average air temperature sensor 2: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>airtemp_hmp3_max</attributeName>
+          <attributeLabel>airtemp_hmp3_max</attributeLabel>
+          <attributeDefinition>maximum air temperature sensor 3</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>celsius</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_airtemp_hmp3_max</attributeName>
+          <attributeLabel>flag_airtemp_hmp3_max</attributeLabel>
+          <attributeDefinition>flag for maximum air temperature sensor 3: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>airtemp_hmp3_min</attributeName>
+          <attributeLabel>airtemp_hmp3_min</attributeLabel>
+          <attributeDefinition>minimum air temperature sensor 3</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>celsius</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_airtemp_hmp3_min</attributeName>
+          <attributeLabel>flag_airtemp_hmp3_min</attributeLabel>
+          <attributeDefinition>flag for minimum air temperature sensor 3: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>airtemp_hmp3_avg</attributeName>
+          <attributeLabel>airtemp_hmp3_avg</attributeLabel>
+          <attributeDefinition>average air temperature sensor 3</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>celsius</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_airtemp_hmp3_avg</attributeName>
+          <attributeLabel>flag_airtemp_hmp3_avg</attributeLabel>
+          <attributeDefinition>flag for average air temperature sensor 3: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>rh_hmp1_max</attributeName>
+          <attributeLabel>rh_hmp1_max</attributeLabel>
+          <attributeDefinition>maximum relative humidity sensor 1</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>percent</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_rh_hmp1_max</attributeName>
+          <attributeLabel>flag_rh_hmp1_max</attributeLabel>
+          <attributeDefinition>flag for maximum relative humidity sensor 1: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>rh_hmp1_min</attributeName>
+          <attributeLabel>rh_hmp1_min</attributeLabel>
+          <attributeDefinition>minimum relative humidity sensor 1</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>percent</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_rh_hmp1_min</attributeName>
+          <attributeLabel>flag_rh_hmp1_min</attributeLabel>
+          <attributeDefinition>flag for minimum relative humidity sensor 1: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>rh_hmp1_avg</attributeName>
+          <attributeLabel>rh_hmp1_avg</attributeLabel>
+          <attributeDefinition>average relative humidity sensor 1</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>percent</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_rh_hmp1_avg</attributeName>
+          <attributeLabel>flag_rh_hmp1_avg</attributeLabel>
+          <attributeDefinition>flag for average relative humidity sensor 1: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>rh_hmp2_max</attributeName>
+          <attributeLabel>rh_hmp2_max</attributeLabel>
+          <attributeDefinition>maximum relative humidity sensor 2</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>percent</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_rh_hmp2_max</attributeName>
+          <attributeLabel>flag_rh_hmp2_max</attributeLabel>
+          <attributeDefinition>flag for maximum relative humidity sensor 2: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>rh_hmp2_min</attributeName>
+          <attributeLabel>rh_hmp2_min</attributeLabel>
+          <attributeDefinition>minimum relative humidity</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>percent</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_rh_hmp2_min</attributeName>
+          <attributeLabel>flag_rh_hmp2_min</attributeLabel>
+          <attributeDefinition>flag for minimum relative humidity sensor 2: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>rh_hmp2_avg</attributeName>
+          <attributeLabel>rh_hmp2_avg</attributeLabel>
+          <attributeDefinition>average relative humidity sensor 2</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>percent</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_rh_hmp2_avg</attributeName>
+          <attributeLabel>flag_rh_hmp2_avg</attributeLabel>
+          <attributeDefinition>flag for average relative humidity sensor 2: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>rh_hmp3_max</attributeName>
+          <attributeLabel>rh_hmp3_max</attributeLabel>
+          <attributeDefinition>maximum relative humidity sensor 3</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>percent</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_rh_hmp3_max</attributeName>
+          <attributeLabel>flag_rh_hmp3_max</attributeLabel>
+          <attributeDefinition>flag for maximum relative humidity sensor 3: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>rh_hmp3_min</attributeName>
+          <attributeLabel>rh_hmp3_min</attributeLabel>
+          <attributeDefinition>minimum relative humidity sensor 3</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>percent</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_rh_hmp3_min</attributeName>
+          <attributeLabel>flag_rh_hmp3_min</attributeLabel>
+          <attributeDefinition>flag for minimum relative humidity sensor 3: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>rh_hmp3_avg</attributeName>
+          <attributeLabel>rh_hmp3_avg</attributeLabel>
+          <attributeDefinition>average relative humidity sensor 3</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>percent</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>flag_rh_hmp3_avg</attributeName>
+          <attributeLabel>flag_rh_hmp3_avg</attributeLabel>
+          <attributeDefinition>flag for average relative humidity sensor 3: n=no flag; m=missing; q=questionable; e=estimated</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>n</code>
+                    <definition>no flag</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>m</code>
+                    <definition>missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>q</code>
+                    <definition>questionable</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>e</code>
+                    <definition>estimated</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NaN</code>
+            <codeExplanation>no data</codeExplanation>
+          </missingValueCode>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>6765</numberOfRecords>
+    </dataTable>
+  </dataset>
+  <additionalMetadata>
+    <metadata>
+      <unitList>
+        <unit id="nominalDay" multiplierToSI="86400" name="nominalDay"
+          parentSI="second" unitType="time">
+          <description>one day excluding leap seconds; 86400 seconds</description>
+        </unit>
+        <unit abbreviation="C" constantToSI="273.18" id="celsius"
+          multiplierToSI="1" name="celsius" parentSI="kelvin">
+          <description>SI-derived unit of temperature</description>
+        </unit>
+        <unit abbreviation="%" id="percent" multiplierToSI="1"
+          name="percent" unitType="dimensionless">
+          <description>ratio of two quantities as percent composition (1:100)</description>
+        </unit>
+        <unit abbreviation="mbar" id="millibar" multiplierToSI="100"
+          name="millibar" parentSI="pascal" unitType="pressure">
+          <description>millibar</description>
+        </unit>
+        <unit abbreviation="m/s" id="meterPerSecond"
+          name="meterPerSecond" unitType="speed">
+          <description>meters per second</description>
+        </unit>
+        <unit abbreviation="degree" id="degree"
+          multiplierToSI="0.017453292" name="degree" parentSI="radian" unitType="angle">
+          <description>360 degrees comprise a unit circle.</description>
+        </unit>
+        <unit abbreviation="W/m^2" id="wattPerMeterSquared"
+          name="wattPerMeterSquared" unitType="intensity">
+          <description>irradiance unit</description>
+        </unit>
+        <unit abbreviation="MJ/m^2" id="megajoulePerMeterSquared"
+          name="megajoulePerMeterSquared" unitType="energy">
+          <description>megajoules per meter squared</description>
+        </unit>
+        <unit id="dimensionless" name="dimensionless" unitType="dimensionless">
+          <description>a designation asserting the absence of an associated unit</description>
+        </unit>
+      </unitList>
+    </metadata>
+  </additionalMetadata>
+</eml:eml>

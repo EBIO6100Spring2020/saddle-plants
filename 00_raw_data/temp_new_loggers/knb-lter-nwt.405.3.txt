@@ -1,0 +1,2328 @@
+
+  
+    
+      uid=nwt,o=LTER,dc=ecoinformatics,dc=org
+      read
+      write
+    
+    
+      public
+      read
+    
+  
+  
+    doi:10.6073/pasta/cf8ff4f209a889b4b20a4fb48be6f1d8
+    Climate data for saddle data loggers (CR23X and CR1000), 2000 - ongoing, daily.
+    
+      Jennifer F Morse
+      jennifer.f.morse@colorado.edu
+    
+    
+      Mark Losleben
+      losleben@email.arizona.edu
+    
+    
+      Mark Losleben
+      losleben@email.arizona.edu
+      principalInvestigator
+    
+    2019-07-15
+    English
+    Climatological data were collected from the saddle climate station on Niwot Ridge (3525 m elevation) throughout the year. From 2000-06-24 to 2012-03-24, data were recorded using a Campbell Instruments CR23X data logger. Subsequently, data were recorded using a Campbell Instruments CR1000 data logger. Maximum and minimum values were recorded instantaneously, with a sampling interval of 5 seconds. Daily means and totals were calculated from 17,280 individual measurements. The CR23X logger was programmed to generate both hourly and daily output. The CR1000 logger generated daily, hourly, and minute data until September 2014, and 10 minute and minute data thereafter.
+    
+      barometric pressure
+      saddle
+      NWT LTER
+      Niwot Ridge
+      data logger
+      CR23X
+      CR1000
+      sensor
+      NWT signature dataset
+    
+    
+      climate
+      weather
+      meteorology
+      climatology
+      solar radiation
+      air temperature
+      relative humidity
+      wind speed
+      wind direction
+      soil temperature
+      soil moisture
+      long term
+      LTER controlled vocabulary
+    
+    
+      
+  This information is released under the Creative Commons license -
+  Attribution - CC BY (https://creativecommons.org/licenses/by/4.0/).
+  The consumer of these data (“Data User” herein) is required to cite it
+  appropriately in any publication that results from its use. The Data
+  User should realize that these data may be actively used by others for
+  ongoing research and that coordination may be necessary to prevent
+  duplicate publication. The Data User is urged to contact the authors
+  of these data if any questions about methodology or results occur.
+  Where appropriate, the Data User is encouraged to consider
+  collaboration or co-authorship with the authors. The Data User should
+  realize that misinterpretation of data may occur if used out of
+  context of the original study. While substantial efforts are made to
+  ensure the accuracy of data and associated documentation, complete
+  accuracy of data sets cannot be guaranteed. All data are made
+  available "as is." The Data User should be aware, however,
+  that data are updated periodically and it is the responsibility of the
+  Data User to check for new versions of the data. The data authors and
+  the repository where these data were obtained shall not be liable for
+  damages resulting from any use or misinterpretation of the data. Thank
+  you.
+
+    
+    
+      
+        Study site was the Saddle on Niwot Ridge.
+        
+          -105.589318580868
+          -105.589154684898
+          40.0549279448373
+          40.0547737112828
+        
+      
+      
+        
+          
+            2000-06-24
+          
+          
+            2018-12-31
+          
+        
+      
+    
+    
+      The documentation section of this file was developed from the NWT LTER Cr21x data files metadata, as well as personal communication with Mark Losleben. The data file was put under sccs control on 2 December 2002. [TMA 02 December 2002] Data for 2002 were appended on 1 December 2004. [TMA 01 December 2004] Data for 2003 and 2004 were appended.[TMA 06 January 2005] Data for 2005 and 2006 were appended.[TMA 05 February 2008]  Data for 1 January 2007 through 7 September 2008 were appended to the data section.[TMA 9 February 2009] Data for 1 January 2008 through September 2008 were replaced and data for 1 January 2009 through December 31 2010 were appended to the data section.[HCH 12 December 2011] Data for 1 January 2011 through December 31 2012 were appended to the data section. Comments were added concerning the addition of cr1000 data to complete 2012-2013 data. NADP and UVB variables were removed. The abstract and comments were rewritten to reflect current IM practice and replacement of CR23X logger by CR1000.[HCH 12 December 2014] Data for 1 January 2013 through December 31 2013 were appended to the data section.[HCH 20 January 2015] The metadata and data ascii file names were changed to include "daily".[HCH 04 October 2015] Data for 2014 were appended. All "time of" variables were removed except time of max wind speed. Max and min variables for solar radiation, soil temp, and vol water content were also removed for consistency with 10 minute variables from which daily data were calculated starting 10 September 2014.[HCH 19 January 2016] Temperature units changed to celsius.[HCH 27 April 2017] Flag columns were added. Standard deviation of wind direction was omitted because the GCE Toolbox doesn't calculate standard deviation for angular variables. Soil moisture columns (previously vwc) were renamed.[HCH 23 February 2018] Data for 2014 through 2016 were appended; variables, keywords, methods, and columns were updated.[HCH 28 April 2018]Niwot metadata converted via script to EML[SCE 2018-09-17].Columns for new airtemp and rh measurements (hmp1, hmp2, hmp3) were added (note flagging of these new sensors has not been extensively tested and some issues may remain, notably with the rh sensor flags). Removed time_ws_max column. 2017 and 2018 data were appended [SCE/ATW 2019-07-15]Corrected EML root node; data unchanged [SCE 10 Oct 2019].
+    
+    
+      Niwot Ridge LTER
+      Information Manager
+      			4001 Discovery Drive, UCB 450
+			University of Colorado
+			Boulder, CO 80303  United States
+      lternwt@colorado.edu
+      https://nwt.lternet.edu/
+    
+    
+      
+        
+          The raw data files are archived in /data2/Datman/Rawarchive/Cr23x and /data2/Datman/Rawarchive/Cr1000 on the NWT LTER server. Prior to February 2010, the information from a web documentation form was incorporated into /data2/Datman/Rawarchive/Cr23x/SDLCR23X.TXT. A copy of the raw file was then processed to separate hourly from daily records; hourly records were archived in /data1/Datman/Climdata/Cr23x/Hourly/Archive.
+          Copies of the daily data files were provided to the climatologist for quality-checking. The information provided by the climatologist was then entered into the web documentation form and appended to the SDLCR23X.TXT file, and used to modify daily values for incorporation into this data set. Beginning in February 2010, the climatologist provided yearly/sub-yearly quality control information in Word documents that were the basis for modifying daily data values for this data set. CR23X hourly outputs are based on 5 second sample intervals, with 720 individual values.
+          In December 2012, the CR23X logger was replaced with a CR1000 logger. Daily, hourly, and minute data were collected and archived in /data2/Datman/Rawarchive/Cr1000 on the NWT LTER server. Starting in September 2014, only 10 minute and minute data were collected by the CR1000 logger (in addition to a reduced set of hourly variables for graphing). The GCE Data Toolbox was used to conduct QAQC and to produce daily and hourly timestamps from the 10 minute data. Flag columns were added at this time. All flag column values were set to "n" for 2000 through September 2014 because no QAQC flagging was conducted during this time. Flag values: n=no flag; m=missing; q=questionable; e=estimated.
+          Hourly infilled saddle data are available at: http://niwot.colorado.edu/data/data/infilled-climate-data-for-c1-saddle-d1-1990-2013-hourly
+          Metadata for Saddle climatological data from other sources can be found in the files:
+          https://portal.lternet.edu/nis/mapbrowse?scope=knb-lter-nwt&amp;identifier=57
+          
+          https://portal.lternet.edu/nis/mapbrowse?scope=knb-lter-nwt&amp;identifier=413
+          https://portal.lternet.edu/nis/mapbrowse?scope=knb-lter-nwt&amp;identifier=416
+          https://portal.lternet.edu/nis/mapbrowse?scope=knb-lter-nwt&amp;identifier=80
+          https://portal.lternet.edu/nis/mapbrowse?scope=knb-lter-nwt&amp;identifier=81
+          https://portal.lternet.edu/nis/mapbrowse?scope=knb-lter-nwt&amp;identifier=83
+          Comments provided by Mark Losleben: soil moisture is relative only; the instrument has not been calibrated.
+        
+      
+    
+    
+      LTER: Long-term research on the dynamics of high-elevation ecosystems -- a framework for understanding ecological responsiveness to climate change
+      
+        Niwot Ridge LTER
+        pointOfContact
+      
+      National Science Foundation:1637686
+    
+    
+      sdlcr23x-cr1000.daily.ml.data.csv
+      Climate data for saddle data loggers (CR23X and CR1000), 2000 - ongoing, daily.
+      
+        sdlcr23x-cr1000.daily.ml.data.csv
+        2563844
+        4a6eb5cf2b6e0284dda6fb6a9df8bcd1
+        
+          
+            1
+            \r\n
+            column
+            
+              ,
+              "
+            
+          
+        
+        
+          
+            https://pasta.lternet.edu/package/data/eml/knb-lter-nwt/405/3/3db783d0ebca2472aff9a6454f56bf6a
+          
+        
+      
+      
+        
+          LTER_site
+          LTER_site
+          Niwot Ridge LTER site
+          string
+          
+            
+              
+                
+                  any text
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          local_site
+          local_site
+          Saddle site
+          string
+          
+            
+              
+                
+                  any text
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          logger
+          logger
+          data logger type (CR23X or CR1000)
+          string
+          
+            
+              
+                
+                  any text
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          date
+          date
+          date (yyyy-mm-dd)
+          dateTime
+          
+            
+              YYYY-MM-DD
+              
+                
+                  2000-06-24
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          year
+          year
+          year
+          dateTime
+          
+            
+              YYYY
+              1
+              
+                
+                  2000
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          jday
+          jday
+          Julian day
+          integer
+          
+            
+              
+                nominalDay
+              
+              1
+              
+                integer
+                
+                  0
+                  366
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          airtemp_max
+          airtemp_max
+          maximum air temperature
+          float
+          
+            
+              
+                celsius
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_airtemp_max
+          flag_airtemp_max
+          flag for maximum air temperature: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          airtemp_min
+          airtemp_min
+          minimum air temperature
+          float
+          
+            
+              
+                celsius
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_airtemp_min
+          flag_airtemp_min
+          flag for minimum air temperature: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          airtemp_avg
+          airtemp_avg
+          average air temperature
+          float
+          
+            
+              
+                celsius
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_airtemp_avg
+          flag_airtemp_avg
+          flag for average air temperature: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          rh_max
+          rh_max
+          maximum relative humidity
+          float
+          
+            
+              
+                percent
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_rh_max
+          flag_rh_max
+          flag for maximum relative humidity: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          rh_min
+          rh_min
+          minimum relative humidity
+          float
+          
+            
+              
+                percent
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_rh_min
+          flag_rh_min
+          flag for minimum relative humidity: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          rh_avg
+          rh_avg
+          average relative humidity
+          float
+          
+            
+              
+                percent
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_rh_avg
+          flag_rh_avg
+          flag for average relative humidity: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          bp_max
+          bp_max
+          maximum barometric pressure
+          float
+          
+            
+              
+                millibar
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_bp_max
+          flag_bp_max
+          flag for maximum barometric pressure: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          bp_min
+          bp_min
+          minimum barometric pressure
+          float
+          
+            
+              
+                millibar
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_bp_min
+          flag_bp_min
+          flag for minimum barometric pressure: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          bp_avg
+          bp_avg
+          average barometric pressure
+          float
+          
+            
+              
+                millibar
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_bp_avg
+          flag_bp_avg
+          flag for average barometric pressure: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          ws_max
+          ws_max
+          maximum wind speed
+          float
+          
+            
+              
+                meterPerSecond
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_ws_max
+          flag_ws_max
+          flag for maximum wind speed: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          ws_min
+          ws_min
+          minimum wind speed
+          float
+          
+            
+              
+                meterPerSecond
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_ws_min
+          flag_ws_min
+          flag for minimum wind speed: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          ws_avg
+          ws_avg
+          average wind speed
+          float
+          
+            
+              
+                meterPerSecond
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_ws_avg
+          flag_ws_avg
+          flag for average wind speed: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          wd
+          wd
+          average wind direction
+          float
+          
+            
+              
+                degree
+              
+              
+                real
+                
+                  0
+                  360
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_wd
+          flag_wd
+          flag for average wind direction: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          solrad_avg
+          solrad_avg
+          average solar radiation in Watts/m2
+          float
+          
+            
+              
+                wattPerMeterSquared
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_solrad_avg
+          flag_solrad_avg
+          flag for average solar radiation in Watts/m2: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          solrad_tot
+          solrad_tot
+          total solar radiation in MJ/m2
+          float
+          
+            
+              
+                megajoulePerMeterSquared
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_solrad_tot
+          flag_solrad_tot
+          flag for total solar radiation in MJ/m2: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          soiltemp_5cm_max
+          soiltemp_5cm_max
+          maximum soil temperature at 5 cm depth
+          float
+          
+            
+              
+                celsius
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_soiltemp_5cm_max
+          flag_soiltemp_5cm_max
+          flag for total maximum soil temperature at 5 cm depth: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          soiltemp_5cm_min
+          soiltemp_5cm_min
+          minimum soil temperature at 5 cm depth
+          float
+          
+            
+              
+                celsius
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_soiltemp_5cm_min
+          flag_soiltemp_5cm_min
+          flag for total minimum soil temperature at 5 cm depth: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          soiltemp_5cm_avg
+          soiltemp_5cm_avg
+          average soil temperature at 5 cm depth
+          float
+          
+            
+              
+                celsius
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_soiltemp_5cm_avg
+          flag_soiltemp_5cm_avg
+          flag for average soil temperature at 5 cm depth: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          soilmoist_5cm_avg
+          soilmoist_5cm_avg
+          average soil moisture at 5 cm depth (relative only - the instrument has not been calibrated)
+          float
+          
+            
+              
+                dimensionless
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_soilmoist_5cm_avg
+          flag_soilmoist_5cm_avg
+          flag for average soil moistureat 5 cm depth: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          airtemp_hmp1_max
+          airtemp_hmp1_max
+          maximum air temperature sensor 1
+          float
+          
+            
+              
+                celsius
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_airtemp_hmp1_max
+          flag_airtemp_hmp1_max
+          flag for maximum air temperature sensor 1: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          airtemp_hmp1_min
+          airtemp_hmp1_min
+          minimum air temperature sensor 1
+          float
+          
+            
+              
+                celsius
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_airtemp_hmp1_min
+          flag_airtemp_hmp1_min
+          flag for minimum air temperature sensor 1: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          airtemp_hmp1_avg
+          airtemp_hmp1_avg
+          average air temperature
+          float
+          
+            
+              
+                celsius
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_airtemp_hmp1_avg
+          flag_airtemp_hmp1_avg
+          flag for average air temperature sensor 1: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          airtemp_hmp2_max
+          airtemp_hmp2_max
+          maximum air temperature sensor 2
+          float
+          
+            
+              
+                celsius
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_airtemp_hmp2_max
+          flag_airtemp_hmp2_max
+          flag for maximum air temperature sensor 2: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          airtemp_hmp2_min
+          airtemp_hmp2_min
+          minimum air temperature sensor 2
+          float
+          
+            
+              
+                celsius
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_airtemp_hmp2_min
+          flag_airtemp_hmp2_min
+          flag for minimum air temperature sensor 2: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          airtemp_hmp2_avg
+          airtemp_hmp2_avg
+          average air temperature sensor 2
+          float
+          
+            
+              
+                celsius
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_airtemp_hmp2_avg
+          flag_airtemp_hmp2_avg
+          flag for average air temperature sensor 2: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          airtemp_hmp3_max
+          airtemp_hmp3_max
+          maximum air temperature sensor 3
+          float
+          
+            
+              
+                celsius
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_airtemp_hmp3_max
+          flag_airtemp_hmp3_max
+          flag for maximum air temperature sensor 3: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          airtemp_hmp3_min
+          airtemp_hmp3_min
+          minimum air temperature sensor 3
+          float
+          
+            
+              
+                celsius
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_airtemp_hmp3_min
+          flag_airtemp_hmp3_min
+          flag for minimum air temperature sensor 3: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          airtemp_hmp3_avg
+          airtemp_hmp3_avg
+          average air temperature sensor 3
+          float
+          
+            
+              
+                celsius
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_airtemp_hmp3_avg
+          flag_airtemp_hmp3_avg
+          flag for average air temperature sensor 3: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          rh_hmp1_max
+          rh_hmp1_max
+          maximum relative humidity sensor 1
+          float
+          
+            
+              
+                percent
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_rh_hmp1_max
+          flag_rh_hmp1_max
+          flag for maximum relative humidity sensor 1: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          rh_hmp1_min
+          rh_hmp1_min
+          minimum relative humidity sensor 1
+          float
+          
+            
+              
+                percent
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_rh_hmp1_min
+          flag_rh_hmp1_min
+          flag for minimum relative humidity sensor 1: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          rh_hmp1_avg
+          rh_hmp1_avg
+          average relative humidity sensor 1
+          float
+          
+            
+              
+                percent
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_rh_hmp1_avg
+          flag_rh_hmp1_avg
+          flag for average relative humidity sensor 1: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          rh_hmp2_max
+          rh_hmp2_max
+          maximum relative humidity sensor 2
+          float
+          
+            
+              
+                percent
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_rh_hmp2_max
+          flag_rh_hmp2_max
+          flag for maximum relative humidity sensor 2: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          rh_hmp2_min
+          rh_hmp2_min
+          minimum relative humidity
+          float
+          
+            
+              
+                percent
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_rh_hmp2_min
+          flag_rh_hmp2_min
+          flag for minimum relative humidity sensor 2: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          rh_hmp2_avg
+          rh_hmp2_avg
+          average relative humidity sensor 2
+          float
+          
+            
+              
+                percent
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_rh_hmp2_avg
+          flag_rh_hmp2_avg
+          flag for average relative humidity sensor 2: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          rh_hmp3_max
+          rh_hmp3_max
+          maximum relative humidity sensor 3
+          float
+          
+            
+              
+                percent
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_rh_hmp3_max
+          flag_rh_hmp3_max
+          flag for maximum relative humidity sensor 3: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          rh_hmp3_min
+          rh_hmp3_min
+          minimum relative humidity sensor 3
+          float
+          
+            
+              
+                percent
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_rh_hmp3_min
+          flag_rh_hmp3_min
+          flag for minimum relative humidity sensor 3: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          rh_hmp3_avg
+          rh_hmp3_avg
+          average relative humidity sensor 3
+          float
+          
+            
+              
+                percent
+              
+              
+                real
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+        
+          flag_rh_hmp3_avg
+          flag_rh_hmp3_avg
+          flag for average relative humidity sensor 3: n=no flag; m=missing; q=questionable; e=estimated
+          string
+          
+            
+              
+                
+                  
+                    n
+                    no flag
+                  
+                  
+                    m
+                    missing
+                  
+                  
+                    q
+                    questionable
+                  
+                  
+                    e
+                    estimated
+                  
+                
+              
+            
+          
+          
+            NaN
+            no data
+          
+        
+      
+      6765
+    
+  
+  
+    
+      
+        
+          one day excluding leap seconds; 86400 seconds
+        
+        
+          SI-derived unit of temperature
+        
+        
+          ratio of two quantities as percent composition (1:100)
+        
+        
+          millibar
+        
+        
+          meters per second
+        
+        
+          360 degrees comprise a unit circle.
+        
+        
+          irradiance unit
+        
+        
+          megajoules per meter squared
+        
+        
+          a designation asserting the absence of an associated unit
+        
+      
+    
+  
