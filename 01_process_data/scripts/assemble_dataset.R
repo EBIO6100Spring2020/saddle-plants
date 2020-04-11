@@ -28,6 +28,9 @@ max.snow = read.csv('01_process_data/output/nwt_saddle_max_snowdepth.csv')
 ndvi.data = read.csv('00_raw_data/avg_NDVI_stake_values2.csv')
 # I'm not sure what is going on in here.
 
+# Nitrogen data by water year
+nitrogen = read.csv('00_raw_data/nitrogen/Niwot_water_year_concentration_data.csv')
+
 # NPP (and veg type) data
 npp.data = read.csv('01_process_data/output/saddle_npp.csv')
 
@@ -131,6 +134,8 @@ veg.n.all = veg.n.obs %>%
   merge(y = npp.clean,
         by.x = c('plot', 'year'), by.y = c('plotid', 'year'),
         all.x = TRUE) %>%
+  merge(y = nitrogen[,c("yr", "Total_N", "Cl", "pH")],
+        by.x = 'year', by.y = "yr") %>%
   arrange(species, year, plot)
 
 head(veg.n.all)
