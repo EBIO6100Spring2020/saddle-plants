@@ -25,3 +25,10 @@ Downloaded by SN on 19 Mar, explored in March and April.
 Daily temperature data, also from saddle, dating 2000 - 2019. Also has mean, min, max temperatures daily, as well as several other columns. These measurements were collected with data loggers. Statistical analysis should control for differences in methodology.
 
 Downloaded by SN 6 Apr.
+
+### nitrogen
+
+Sean found data from the Nitrogen Atmosphereic Deposition Network on annual Nitrogen deposition at the saddle. There is one point for the whole saddle in each year, giving a time series of deposition and several soil properties. We have daily averages of several nutrients, e.g., Carbon, Nitrogen, Potassium, etc., with samples taken (not sure how) and averaged either for the calendar year (`yearly`) or over the water year (October - September, `water_year`). According to metadata, the `Criteria1` column gives the percentage of the sampling period for which there are samples available; their website says samples were taken every Tuesday (so, weekly) meaning you can probably divide this percentage by two (52 weeks) to get the number of samples.
+
+Downloaded by SS 9 Apr.
+
