@@ -71,43 +71,73 @@ ggplot(t.comb.compare) +
 #                              seed = 41101)
 # 
 # summary(lamar)
-
+# 
 # So: we have a 1.2 - 1.5 degree discrepancy between the old temperatures and the new ones.
-
-
+# 
 # Look at low temperatures:
-
-
-ggplot(t.comb.compare) +
-  geom_point(aes(x = airtemp_min_old, y = airtemp_min_new), 
-             alpha = 0.5) +
-  geom_segment(aes(x = -20, y = -20,
-                   xend = 10, yend = 10),
-               colour = 'gray55') +
-  facet_wrap(~ year)
-
-lamin = rstanarm::stan_glmer(airtemp_min_new ~ airtemp_min_old + (1 | year),
-                             family = 'gaussian', cores = 4,
-                             data = t.comb.compare %>% mutate(year = factor(year)),
-                             seed = 7709210)
-
-summary(lamin)
-
-# we have 
-
-lamax = rstanarm::stan_glmer(airtemp_max_new ~ airtemp_max_old + (1 | year),
-                             family = 'gaussian', cores = 4,
-                             data = t.comb.compare %>% mutate(year = factor(year)),
-                             seed = 31210110)
-summary(lamax)
-
-# max temp is 2.5 degrees higher on the other loggers!
+# ggplot(t.comb.compare) +
+#   geom_point(aes(x = airtemp_min_old, y = airtemp_min_new), 
+#              alpha = 0.5) +
+#   geom_segment(aes(x = -20, y = -20,
+#                    xend = 10, yend = 10),
+#                colour = 'gray55') +
+#   facet_wrap(~ year)
+# 
+# lamin = rstanarm::stan_glmer(airtemp_min_new ~ airtemp_min_old + (1 | year),
+#                              family = 'gaussian', cores = 4,
+#                              data = t.comb.compare %>% mutate(year = factor(year)),
+#                              seed = 7709210)
+# 
+# summary(lamin)
+# 
+# # we have 
+# 
+# lamax = rstanarm::stan_glmer(airtemp_max_new ~ airtemp_max_old + (1 | year),
+#                              family = 'gaussian', cores = 4,
+#                              data = t.comb.compare %>% mutate(year = factor(year)),
+#                              seed = 31210110)
+# summary(lamax)
+# 
+# # max temp is 2.5 degrees higher on the other loggers!
 
 # Will need to run the modls "backwards" to get 'old' loggers
 
 
-# Add julian date information.
+lamar = rstanarm::stan_glmer(airtemp_avg_old ~ airtemp_avg_new + (1 | year),
+                             family = 'gaussian', seed = 41101, cores = 4,
+                             data = t.comb.compare %>% mutate(year = factor(year)))
+# summary(lamar)
+lamin = rstanarm::stan_glmer(airtemp_min_old ~ airtemp_min_new + (1 | year),
+                             family = 'gaussian', seed = 7709210, cores = 4,
+                             data = t.comb.compare %>% mutate(year = factor(year)))
+# summary(lamin)
+lamax = rstanarm::stan_glmer(airtemp_max_old ~ airtemp_max_new + (1 | year),
+                             family = 'gaussian', seed = 31210110, cores = 4,
+                             data = t.comb.compare %>% mutate(year = factor(year)))
 
+# Make a data frame of days we can impute 
+t.impute = t.comb %>%
+  separate(date, into = c('year', 'month', 'day'), sep = '-') %>%
+  filter(is.na(airtemp_avg_old) & !(is.na(airtemp_avg_new) | is.nan(airtemp_avg_new))) %>%
+  select(-contains('old')) %>%
+  mutate(imp_avg_old = rstanarm::posterior_predict(lamar, newdata = ., seed = 10715) %>% 
+           apply(2, mean),
+         imp_min_old = rstanarm::posterior_predict(lamin, newdata = ., seed = 319480) %>% 
+           apply(2, mean),
+         imp_max_old = rstanarm::posterior_predict(lamax, newdata = ., seed = 125509) %>%
+           apply(2, mean))
 
-write.csv(t.comb, row.names = FALSE,
-          file = '01_process_data/output/all_airtemp.csv')
+t.impute
+
+t.comb.all = merge(x = t.comb %>% separate(date, into = c('year', 'month', 'day'), sep = '-'),
+                   y = t.impute %>% select(year, month, day, contains('imp')),
+                   by = c('year', 'month', 'day'), all.x = TRUE) %>%
+  mutate(max_temp = ifelse(is.na(airtemp_max_old), imp_max_old, airtemp_max_old),
+         avg_temp = ifelse(is.na(airtemp_avg_old), imp_avg_old, airtemp_avg_old),
+         min_temp = ifelse(is.na(airtemp_min_old), imp_min_old, airtemp_min_old)) %>%
+  select(year, month, day, max_temp, avg_temp, min_temp, contains('flag'))
+
+apply(t.comb.all, 2, function(x) sum(is.na(x)))
+
+write.csv(t.comb.all, row.names = FALSE,
+           file = '01_process_data/output/daily_airtemp_all.csv')
