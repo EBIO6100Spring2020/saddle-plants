@@ -199,4 +199,49 @@ loggr %>%
                colour = 'purple') +
   facet_wrap(~ seas)
 
-# No real evidence for differences in solar radiation  
+# No real evidence for differences in solar radiation
+
+##### Okay. Look at the daily temperature data.
+
+daily = read.csv('01_process_data/output/daily_airtemp_all.csv')
+
+head(daily)
+
+# Goddamnit
+# Need julian date
+# Now, want water date for each year.
+daily = daily %>%
+  mutate(jd = paste('1970', month, day, sep = '-') %>% as.Date() %>% julian(),
+         wyear = year + as.numeric(month > 9),
+         wd = jd - 273 + ifelse(wyear == year, 365, 0))
+
+head(daily)
+
+daily %>%
+  ggplot() +
+  geom_line(aes(x = wd, y = avg_temp)) +
+  facet_wrap(~ wyear)
+# Looks good.
+
+# Try first: simple means from the previous year.
+
+ann.means = daily %>%
+  group_by(wyear) %>%
+  summarise_at(vars(max_temp, avg_temp, min_temp), mean) %>%
+  mutate(p1y = wyear - 1,
+         p2y = wyear - 2,
+         p3y = wyear - 3)
+
+abracadab = merge(x = ann.means %>% select(-c(p2y, p3y)),
+                  y = ann.means %>% select(-c(wyear, p2y, p3y)),
+                  by.x = 'wyear', by.y = 'p1y',
+                  suffixes = c('_y', '_p1')) %>%
+  merge(y = ann.means %>% select(-c(wyear, p1y, p3y)),
+        by.x = 'wyear', by.y = 'p2y',
+        suffixes = c('', '_p2')) %>%
+  merge(y = ann.means %>% select(-c(wyear, p1y, p2y)),
+        by.x = 'wyear', by.y = 'p3y',
+        suffixes = c('', '_p3'))
+
+# Is this what I want?
+abracadab
