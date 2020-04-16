@@ -227,21 +227,83 @@ daily %>%
 
 ann.means = daily %>%
   group_by(wyear) %>%
-  summarise_at(vars(max_temp, avg_temp, min_temp), mean) %>%
-  mutate(p1y = wyear - 1,
-         p2y = wyear - 2,
-         p3y = wyear - 3)
+  summarise(jja_mean = mean(avg_temp[month %in% 6:8])) %>%
+  mutate(p1y = wyear + 1,
+         p2y = wyear + 2,
+         p3y = wyear + 3)
 
-abracadab = merge(x = ann.means %>% select(-c(p2y, p3y)),
-                  y = ann.means %>% select(-c(wyear, p2y, p3y)),
-                  by.x = 'wyear', by.y = 'p1y',
-                  suffixes = c('_y', '_p1')) %>%
+rolling.means = merge(x = ann.means %>% select(-c(p1y, p2y, p3y)),
+                      y = ann.means %>% select(-c(wyear, p2y, p3y)),
+                      by.x = 'wyear', by.y = 'p1y',
+                      suffixes = c('', '_p1')) %>%
   merge(y = ann.means %>% select(-c(wyear, p1y, p3y)),
         by.x = 'wyear', by.y = 'p2y',
         suffixes = c('', '_p2')) %>%
   merge(y = ann.means %>% select(-c(wyear, p1y, p2y)),
         by.x = 'wyear', by.y = 'p3y',
-        suffixes = c('', '_p3'))
+        suffixes = c('', '_p3')) %>%
+  mutate(jja_mean1 = (jja_mean + jja_mean_p1)/2,
+         jja_mean2 = (jja_mean + jja_mean_p1 + jja_mean_p2)/3,
+         jja_mean3 = (jja_mean + jja_mean_p1 + jja_mean_p2 + jja_mean_p3)/3)
 
-# Is this what I want?
-abracadab
+# Also want: maybe the cumulative number of days above 5 degrees (i.e., growing
+# degree days) by the sampling date.
+
+# GDD for spring of _that year_ (april 1 - june 30)
+# (earliest samples are june ~20, but most samples are july/august)
+gdd.spring = daily %>%
+  filter(month %in% 4:6) %>%
+  group_by(wyear) %>%
+  summarise(spring.gdd = sum(min_temp > 5))
+
+# Now, let's make moving averages of GDD
+# Go up to three years prevous
+gdd.allyrs = daily %>%
+  group_by(wyear) %>%
+  summarise(season.gdd = sum(min_temp > 5)) %>%
+  mutate(p1y = wyear + 1,
+         p2y = wyear + 2,
+         p3y = wyear + 3)
+
+# Note: we don't want year of so we'll clip those out in select(-season.gdd)
+rolling.gdds = merge(x = gdd.allyrs %>% select(-c(p1y, p2y, p3y)),
+                     y = gdd.allyrs %>% select(-c(wyear, p2y, p3y)),
+                     by.x = 'wyear', by.y = 'p1y',
+                     suffixes = c('', '_p1')) %>%
+  merge(y = gdd.allyrs %>% select(-c(wyear, p1y, p3y)),
+        by.x = 'wyear', by.y = 'p2y',
+        suffixes = c('', '_p2')) %>%
+  merge(y = gdd.allyrs %>% select(-c(wyear, p1y, p2y)),
+        by.x = 'wyear', by.y = 'p3y',
+        suffixes = c('', '_p3')) %>%
+  select(-season.gdd) %>%
+  mutate(season.gdd2 = (season.gdd_p1 + season.gdd_p2)/2,
+         season.gdd3 = (season.gdd_p1 + season.gdd_p2 + season.gdd_p3)/3) %>%
+  rename(season.gdd1 = season.gdd_p1)
+
+head(rolling.gdds)
+
+# Okay, a tricky one. How to get start of growing season.
+# This data might be kinda confounding with the snowmelt GAMs.
+
+# diff(cumsum(min_temp > -3), lag = 3) gives the number of days out of the last
+# three which have had min_temp above -3
+
+seas.start = daily %>%
+  filter(month %in% 1:8) %>%
+  select(wyear, year, month, day, jd, min_temp) %>%
+  arrange(wyear, jd) %>%
+  group_by(wyear) %>%
+  mutate(three.day.lag = c(0, 0, 0, 0, diff(cumsum(min_temp > -3), lag = 4))) %>%
+  filter(three.day.lag %in% 3) %>%
+  distinct(wyear, .keep_all = TRUE) %>%
+  select(wyear, jd, year, month, day)
+
+seas.start %>% print(n = 35)
+
+# Okay. Cool and good!
+
+hist(seas.start$jd)
+
+seas.start %>% filter(jd < 100)
+# March date... are these okay?
