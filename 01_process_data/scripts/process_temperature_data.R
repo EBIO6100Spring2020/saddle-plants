@@ -241,8 +241,8 @@ seas.start = daily %>%
   select(wyear, year, month, day, jd, min_temp) %>%
   arrange(wyear, jd) %>%
   group_by(wyear) %>%
-  mutate(three.day.lag = c(0, 0, 0, 0, diff(cumsum(min_temp > -3), lag = 4))) %>%
-  filter(three.day.lag %in% 3) %>%
+  mutate(three.day.lag = c(0, 0, 0, diff(cumsum(min_temp > -3), lag = 3))) %>%
+  filter(three.day.lag %in% 4) %>%
   distinct(wyear, .keep_all = TRUE) %>%
   select(wyear, jd, year, month, day)
 
