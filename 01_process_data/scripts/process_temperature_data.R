@@ -169,9 +169,9 @@ ann.means = daily %>%
 
 # Use merging to connect year column to previous year data
 # Make the following output columns:
-#   jja_mean2 - mean Jun-Aug temperatures over last two years
-#   jja_mean3 - mean Jun-Aug temperatures over last three years
-#   jja_mean4 - mean Jun-Aug temperatures over last four years
+#   jja_mean1 - mean Jun-Aug temperatures in previous year
+#   jja_mean2 - mean Jun-Aug temperatures over previous two years
+#   jja_mean3 - mean Jun-Aug temperatures over previous three years
 rolling.means = merge(x = ann.means %>% select(-c(p1y, p2y, p3y)),
                       y = ann.means %>% select(-c(wyear, p2y, p3y)),
                       by.x = 'wyear', by.y = 'p1y',
@@ -182,10 +182,10 @@ rolling.means = merge(x = ann.means %>% select(-c(p1y, p2y, p3y)),
   merge(y = ann.means %>% select(-c(wyear, p1y, p2y)),
         by.x = 'wyear', by.y = 'p3y',
         suffixes = c('', '_p3')) %>%
-  mutate(jja_mean2 = (jja_mean + jja_mean_p1)/2,
-         jja_mean3 = (jja_mean + jja_mean_p1 + jja_mean_p2)/3,
-         jja_mean4 = (jja_mean + jja_mean_p1 + jja_mean_p2 + jja_mean_p3)/3) %>%
-  select(-c(jja_mean_p1, jja_mean_p2, jja_mean_p3)) %>%
+  mutate(jja_mean1 = jja_mean_p1,
+         jja_mean2 = (jja_mean_p1 + jja_mean_p2)/2,
+         jja_mean3 = (jja_mean_p1 + jja_mean_p2 + jja_mean_p3)/3) %>%
+  select(-c(jja_mean, jja_mean_p1, jja_mean_p2, jja_mean_p3)) %>%
   filter(wyear < 2019)
 
 ### Next: growing degree days by July 1
