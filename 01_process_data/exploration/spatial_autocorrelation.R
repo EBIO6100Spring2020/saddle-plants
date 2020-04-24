@@ -74,17 +74,22 @@ dece.A.consec.yrs<-merge(dece.sp.a.yr, dece.consec.yrs, by = c('year', 'plot'))
 #try mixed effects model
 dece.sp.a.null = glm(cbind(n.obs, 100 - n.obs) ~ 1, 
                 family = 'binomial',
-                data =A.consec.yrs)
+                data =dece.A.consec.yrs)
 
 dece.sp.a.1 = glmer(cbind(n.obs, 100 - n.obs) ~ A1 +(1|year), 
                      family = 'binomial',
-                     data =A.consec.yrs)
+                     data =dece.A.consec.yrs)
 summary(dece.sp.a.1)
 
-dece.sp.a.2 = glmer(cbind(n.obs, 100 - n.obs) ~ A1 +(1|year), 
+dece.sp.a.2 = glmer(cbind(n.obs, 100 - n.obs) ~ A1 +(1|year)+(1|plot), 
                     family = 'binomial',
-                    data =A.consec.yrs)
-summary(dece.sp.a.1)
+                    data =dece.A.consec.yrs)
+summary(dece.sp.a.2)
+dece.sp.a.3 = glmer(cbind(n.obs, 100 - n.obs) ~ (1|year)+(1|plot), 
+                    family = 'binomial',
+                    data =dece.A.consec.yrs)
+summary(dece.sp.a.3)
+
 
 ##geum
 gero.A.all.years<-veg%>%
@@ -124,6 +129,11 @@ gero.sp.a.2 = glmer(cbind(n.obs, 100 - n.obs) ~ A1 + (1|plot)+(1|year),
                     family = 'binomial',
                     data =gero.A.consec.yrs)
 summary(gero.sp.a.2)
+
+gero.sp.a.3 = glmer(cbind(n.obs, 100 - n.obs) ~(1|plot)+(1|year), 
+                    family = 'binomial',
+                    data =gero.A.consec.yrs)
+summary(gero.sp.a.3)
 
 ##KOMY
 
@@ -165,4 +175,9 @@ komy.sp.a.2 = glmer(cbind(n.obs, 100 - n.obs) ~ A1+(1|plot)+(1|year),
                     family = 'binomial',
                     data =komy.A.consec.yrs)
 summary(komy.sp.a.2)#relationship minorly significant with plot level random effect
+
+komy.sp.a.3 = glmer(cbind(n.obs, 100 - n.obs) ~ (1|plot)+(1|year), 
+                    family = 'binomial',
+                    data =komy.A.consec.yrs)
+summary(komy.sp.a.3)
 
