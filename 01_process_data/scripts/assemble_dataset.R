@@ -34,6 +34,9 @@ nitrogen = read.csv('00_raw_data/nitrogen/Niwot_water_year_concentration_data.cs
 # NPP (and veg type) data
 npp.data = read.csv('01_process_data/output/saddle_npp.csv')
 
+# All temperature data
+all.temp = read.csv('01_process_data/output/annual_temperatures.csv')
+
 ##### Generate plot-level summary statistics
 
 # Good way to model the density of species at each plot
@@ -135,7 +138,11 @@ veg.n.all = veg.n.obs %>%
         by.x = c('plot', 'year'), by.y = c('plotid', 'year'),
         all.x = TRUE) %>%
   merge(y = nitrogen[,c("yr", "Total_N", "Cl", "pH")],
-        by.x = 'year', by.y = "yr") %>%
+        by.x = 'year', by.y = "yr",
+        all.x = TRUE) %>%
+  merge(y = all.temp,
+        by.x = 'year', by.y = 'wyear',
+        all.x = TRUE) %>%
   arrange(species, year, plot)
 
 head(veg.n.all)
