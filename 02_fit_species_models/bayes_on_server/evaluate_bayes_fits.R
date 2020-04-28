@@ -7,7 +7,7 @@ library(tidyr)
 library(rstanarm)
 
 # Read in data
-all.sp = read.csv('input/veg_all_predictors.csv') %>%
+all.sp = read.csv('01_process_data/output/veg_all_predictors.csv') %>%
   select(-c(slope1, elev1, asp1, mNPP, veg_class)) %>%
   filter(apply(., 1, function(x) all(!is.na(x)))) %>%
   mutate(asp.e = sin(pi * asp2 / 180),
