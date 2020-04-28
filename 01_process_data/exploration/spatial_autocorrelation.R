@@ -6,7 +6,7 @@ library(lme4)
 
 veg<-read.csv('01_process_data/output/veg_all_predictors.csv')
 head(veg)
-unique(veg$year)
+
 
 ###spatial dependence
 read.csv('00_raw_data/spatial_physical_data/Point_attributes.csv')
@@ -181,3 +181,41 @@ komy.sp.a.3 = glmer(cbind(n.obs, 100 - n.obs) ~ (1|plot)+(1|year),
                     data =komy.A.consec.yrs)
 summary(komy.sp.a.3)
 
+##make csv with autocorrelation variable and year
+sample.years<-unique(dece.A.all.years$year)
+dece.sp.a.yr<-dece.A.all.years%>%
+  group_by(plot, year, A)%>%
+  mutate(
+    Ayr = sample.years[which(sample.years == year)+1]
+  )
+dece.A<-data.frame(dece.sp.a.yr$A, dece.sp.a.yr$Ayr )
+
+colnames(dece.A)<-
+colnames(dece.A)<-c('A', 'year')
+dece.A$species <- 'DECE'
+
+sample.years<-unique(gero.A.all.years$year)
+gero.sp.a.yr<-gero.A.all.years%>%
+  group_by(plot, year, A)%>%
+  mutate(
+    Ayr = sample.years[which(sample.years == year)+1]
+  )
+gero.A<-data.frame(gero.sp.a.yr$A, gero.sp.a.yr$Ayr )
+
+colnames(gero.A)<-c('A', 'year')
+gero.A$species <- 'GEROT'
+
+sample.years<-unique(komy.A.all.years$year)
+komy.sp.a.yr<-komy.A.all.years%>%
+  group_by(plot, year, A)%>%
+ mutate(
+    Ayr = sample.years[which(sample.years == year)+1]
+  )
+komy.A<-data.frame(komy.sp.a.yr$A, komy.sp.a.yr$Ayr )
+
+colnames(komy.A)<-c('A', 'year')
+komy.A$species <- 'KOMY'
+
+all.species<-rbind(dece.A,gero.A, komy.A)
+
+write.csv(all.species, row.names = F, '01_process_data/output/autocor_value.csv')
