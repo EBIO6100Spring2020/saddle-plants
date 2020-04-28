@@ -238,19 +238,19 @@ rolling.gdds = merge(x = gdd.allyrs %>% select(-c(p1y, p2y, p3y)),
 # picks out the very first of these julian days in each year
 seas.start = daily %>%
   filter(month %in% 1:8) %>%
-  select(wyear, year, month, day, jd, min_temp) %>%
-  arrange(wyear, jd) %>%
+  select(wyear, year, month, day, wd, min_temp) %>%
+  arrange(wyear, wd) %>%
   group_by(wyear) %>%
   mutate(three.day.lag = c(0, 0, 0, diff(cumsum(min_temp > -3), lag = 3))) %>%
-  filter(three.day.lag %in% 4) %>%
+  filter(three.day.lag %in% 3) %>%
   distinct(wyear, .keep_all = TRUE) %>%
-  select(wyear, jd, year, month, day)
+  select(wyear, wd, year, month, day)
 
 ### Merge ll of these together:
 
 merge(x = rolling.means, y = rolling.gdds, by = 'wyear') %>%
-  merge(y = seas.start %>% select(wyear, jd)) %>%
-  rename(seas_start_jd = jd) %>%
+  merge(y = seas.start %>% select(wyear, wd)) %>%
+  rename(seas_start_wd = wd) %>%
   write.csv('01_process_data/output/annual_temperatures.csv',
             row.names = FALSE, quote = FALSE)
 
