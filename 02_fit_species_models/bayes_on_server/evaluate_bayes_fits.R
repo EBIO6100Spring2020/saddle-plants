@@ -7,7 +7,7 @@ library(tidyr)
 library(rstanarm)
 
 # Read in data
-all.sp = read.csv('input/veg_all_predictors.csv') %>%
+all.sp = read.csv('01_process_data/output/veg_all_predictors.csv') %>%
   select(-c(slope1, elev1, asp1, mNPP, veg_class)) %>%
   filter(apply(., 1, function(x) all(!is.na(x)))) %>%
   mutate(asp.e = sin(pi * asp2 / 180),
@@ -40,6 +40,8 @@ all.nulls = read.csv('02_fit_species_models/bayes_on_server/model_preds/all_null
 all.aspes = read.csv('02_fit_species_models/bayes_on_server/model_preds/all_aspe_summary.csv')
 all.en = read.csv('02_fit_species_models/bayes_on_server/model_preds/all_aspen_summary.csv')
 all.ec = read.csv('02_fit_species_models/bayes_on_server/model_preds/all_aspe_slope_summary.csv')
+dece.temp = read.csv('02_fit_species_models/bayes_on_server/model_preds/dece_temp_summary.csv')
+koge.temp = read.csv('02_fit_species_models/bayes_on_server/model_preds/komy_gero_summary.csv')
 
 head(all.aspes)
 
@@ -80,6 +82,49 @@ rmse(dece.ecf)
 eval_ci(dece.ecf)
 # 80.3
 
+### Slope + jja3 model
+
+dece.sj3 = merge(dece.valid, dece.temp %>% filter(model %in% 'slope.jja3'),
+                 by.x = 'obsno', by.y = 'i')
+
+rmse(dece.sj3)
+# 22.45 ...?
+eval_ci(dece.sj3)
+# 78%
+
+# This model is much worse??
+
+### No slope + jja3 model
+
+dece.nj3 = merge(dece.valid, dece.temp %>% filter(model %in% 'noslope.jja3'),
+                 by.x = 'obsno', by.y = 'i')
+
+rmse(dece.nj3)
+# 23.04
+eval_ci(dece.nj3)
+# 76%
+
+### Slope + jja1 model
+
+dece.sj1 = merge(dece.valid, dece.temp %>% filter(model %in% 'slope.jja1'),
+                 by.x = 'obsno', by.y = 'i')
+
+rmse(dece.sj1)
+# 8.41
+# WHAT
+eval_ci(dece.sj1)
+# 84.8%
+
+# WHAT
+
+dece.nj1 = merge(dece.valid, dece.temp %>% filter(model %in% 'noslope.jja1'),
+                 by.x = 'obsno', by.y = 'i')
+
+rmse(dece.nj1)
+# 8.27
+eval_ci(dece.nj1)
+# 84.5%
+
 ##### Kobresia models
 
 ### Null model
@@ -117,6 +162,31 @@ rmse(komy.ecf)
 eval_ci(komy.ecf)
 # 92.8
 
+### Try Kobresia model with easting and jja2
+
+komy.ej2 = merge(komy.valid, koge.temp %>% 
+                   filter(sp %in% 'komy' & model %in% 'easting.jja2'),
+                 by.x = 'obsno', by.y = 'i')
+
+rmse(komy.ej2)
+# 7.331
+eval_ci(komy.ej2)
+# 92.4
+
+### Kobresia model without easting but with jja2
+
+komy.nj2 = merge(komy.valid, koge.temp %>% 
+                   filter(sp %in% 'komy' & model %in% 'noeasting.jja2'),
+                 by.x = 'obsno', by.y = 'i')
+
+rmse(komy.nj2)
+# 7.237
+eval_ci(komy.ej2)
+# 92.4
+
+# doesn't suggest to me that we should include temperature here
+# (surprising!)
+
 ##### Geum models
 
 ### Null model
@@ -152,6 +222,17 @@ rmse(gero.ecf)
 # 0.014
 eval_ci(gero.ecf)
 # 92.8
+
+### Geum model with jja3
+
+gero.ja3 = merge(gero.valid, koge.temp %>% 
+                   filter(sp %in% 'gero' & model %in% 'jja3'))
+
+rmse(gero.ja3)
+# 1.935
+eval_ci(gero.ja3)
+# holy shit 31%
+# holy shit
 
 ##### Variance partitioning.
 
@@ -233,8 +314,6 @@ gero.en
 # asp.n not significant
 
 ### easting and slope models
-
-### easting and slope models
 load('02_fit_species_models/bayes_on_server/models/ec_mods.RData')
 
 dece.ec
@@ -245,6 +324,19 @@ komy.ec
 
 gero.ec
 # slope is n.s. here
+
+### Deschampsia temperature models
+load('02_fit_species_models/bayes_on_server/models/dece_temp_mods.RData')
+rm(dece.sj3, dece.nj3)
+
+
+d.slp.ja1
+# ... jja_mean1 is totally n.s...?
+
+d.nsp.ja1
+# same result here
+# year-level varance is also about the same...
+
 
 ####### Visualizing model fits
 
@@ -265,6 +357,62 @@ dece.valid %>%
                size = 0.5, colour = 'orange', lineend = 'square') +
   geom_point(aes(x = j, y = yhat_medn), colour = 'orange') +
   geom_point(aes(x = j, y = n.obs), colour = 'blue', alpha = 0.25)
+
+# Deschampsia with jja1
+
+dece.valid %>%
+  select(obsno, n.obs) %>%
+  rename(i = obsno) %>%
+  merge(y = dece.temp %>% filter(model %in% 'slope.jja1')) %>%
+  arrange(desc(yhat_medn)) %>%
+  mutate(j = 1:nrow(.)) %>%
+  ggplot() +
+  geom_segment(aes(x = j, xend = j, y = yhat_q025, yend = yhat_q975),
+               size = 0.5, colour = 'orange', lineend = 'square') +
+  geom_point(aes(x = j, y = yhat_medn), colour = 'orange') +
+  geom_point(aes(x = j, y = n.obs), colour = 'blue', alpha = 0.25)
+
+# Results here are still biased high.
+
+rbind(all.ec %>% filter(sp %in% 'dece'),
+      dece.temp %>% filter(model %in% 'slope.jja1')) %>%
+  ggplot() +
+  geom_point(aes(x = i, y = yhat_mean, 
+                 group = model,
+                 colour = model),
+             position = position_dodge())
+
+rbind(all.ec %>% filter(sp %in% 'dece'),
+      dece.temp %>% filter(model %in% 'slope.jja1')) %>%
+  select(i, yhat_mean, model) %>%
+  spread(key = model, value = yhat_mean) %>%
+  ggplot() +
+  geom_point(aes(x = aspen, y = slope.jja1)) +
+  geom_segment(aes(x = 0, xend = 70, y = 0, yend = 70))
+# really confused...
+
+dece.valid %>%
+  select(obsno, n.obs) %>%
+  rename(i = obsno) %>%
+  merge(y = rbind(
+    dece.temp %>% filter(model %in% c('noslope.jja1', 'slope.jja1')),
+    all.ec %>% filter(sp %in% 'dece')
+    ),
+    by = 'i') %>%
+  mutate(nobs_jit = n.obs + ifelse(model %in% 'aspen', -0.25,
+                                   ifelse(model %in% 'slope.jja1', 0, 0.25))) %>%
+  ggplot() +
+  geom_segment(aes(x = 0, xend = 82, y = 0, yend = 82)) +
+  geom_point(aes(x = nobs_jit, y = yhat_mean, 
+                 group = model, 
+                 colour = model),
+             alpha = 0.5) +
+  geom_segment(aes(x = nobs_jit, xend = nobs_jit,
+                   y = yhat_mean, yend = nobs_jit,
+                   colour = model),
+               size = 0.15)
+# well, this shows the bias pretty well.
+# but it illustrates the differences in models well enough.
 
 ### Kobresia fits
 komy.valid %>%
