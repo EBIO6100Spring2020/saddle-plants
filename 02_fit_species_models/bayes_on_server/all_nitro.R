@@ -124,9 +124,9 @@ gero.pred.summ = gero.nitr.pred %>%
 write.csv(rbind(dece.pred.summ %>% 
                   mutate(loglik = log_lik(dece.nitr) %>% apply(1, sum) %>% mean()), 
                 komy.pred.summ %>% 
-                  mutate(loglik = log_lik(dece.nitr) %>% apply(1, sum) %>% mean()), 
+                  mutate(loglik = log_lik(komy.nitr) %>% apply(1, sum) %>% mean()), 
                 gero.pred.summ %>% 
-                  mutate(loglik = log_lik(dece.nitr) %>% apply(1, sum) %>% mean())),
+                  mutate(loglik = log_lik(gero.nitr) %>% apply(1, sum) %>% mean())),
           row.names = FALSE,
           file = 'output/all_nitr_summary.csv')
 
