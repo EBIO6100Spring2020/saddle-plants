@@ -42,7 +42,7 @@ print('kobresia jja2 w/ easting')
 kej2.pred = posterior_predict(k.e.j2, newdata = komy.valid,
                               re.form = ~ (1 | plot),
                               seed = 90001,
-                              draws = 1000)
+                              draws = 4000)
 
 # Generate summary statistics for posterior draws
 kej2.pred.summ = kej2.pred %>%
@@ -54,7 +54,9 @@ kej2.pred.summ = kej2.pred %>%
   summarise(yhat_mean = mean(pred),
             yhat_medn = median(pred),
             yhat_q975 = quantile(pred, 0.975),
-            yhat_q025 = quantile(pred, 0.025)) %>%
+            yhat_q025 = quantile(pred, 0.025),
+            yhat_q841 = quantile(pred, 0.841),
+            yhat_q159 = quantile(pred, 0.159)) %>%
   mutate(sp = 'komy', model = 'easting.jja2')
 
 ### Kobresia model with out easting but with June - August means over last two years
@@ -70,7 +72,7 @@ print('kobresia jja2 no easting')
 k.j2.pred = posterior_predict(k.j2, newdata = komy.valid,
                               re.form = ~ (1 | plot),
                               seed = 44310,
-                              draws = 1000)
+                              draws = 4000)
 
 # Generate summary statistics for posterior draws
 k.j2.pred.summ = k.j2.pred %>%
@@ -82,7 +84,9 @@ k.j2.pred.summ = k.j2.pred %>%
   summarise(yhat_mean = mean(pred),
             yhat_medn = median(pred),
             yhat_q975 = quantile(pred, 0.975),
-            yhat_q025 = quantile(pred, 0.025)) %>%
+            yhat_q025 = quantile(pred, 0.025),
+            yhat_q841 = quantile(pred, 0.841),
+            yhat_q159 = quantile(pred, 0.159)) %>%
   mutate(sp = 'komy', model = 'noeasting.jja2')
 
 ### Geum model with jja 3
@@ -98,7 +102,7 @@ print('geum jja3')
 g.j3.pred = posterior_predict(g.j3, newdata = gero.valid,
                               re.form = ~ (1 | plot),
                               seed = 80109,
-                              draws = 1000)
+                              draws = 4000)
 
 # Generate summary statistics for posterior draws
 g.j3.pred.summ = g.j3.pred %>%
@@ -110,14 +114,21 @@ g.j3.pred.summ = g.j3.pred %>%
   summarise(yhat_mean = mean(pred),
             yhat_medn = median(pred),
             yhat_q975 = quantile(pred, 0.975),
-            yhat_q025 = quantile(pred, 0.025)) %>%
+            yhat_q025 = quantile(pred, 0.025),
+            yhat_q841 = quantile(pred, 0.841),
+            yhat_q159 = quantile(pred, 0.159)) %>%
   mutate(sp = 'gero', model = 'jja3')
 
 ##### Export
 
-write.csv(rbind(kej2.pred.summ, k.j2.pred.summ, g.j3.pred.summ),
+write.csv(rbind(kej2.pred.summ %>% 
+                  mutate(loglik = log_lik(k.e.j2) %>% apply(1, sum) %>% mean()), 
+                k.j2.pred.summ %>% 
+                  mutate(loglik = log_lik(k.j2) %>% apply(1, sum) %>% mean()), 
+                g.j3.pred.summ %>% 
+                  mutate(loglik = log_lik(g.j3) %>% apply(1, sum) %>% mean())),
           row.names = FALSE,
-          file = 'output/dece_gero_temp_summary.csv')
+          file = 'output/komy_gero_temp_summary.csv')
 
 save(k.e.j2, k.j2, g.j3,
      file = 'komy_gero_temp_mods.RData')

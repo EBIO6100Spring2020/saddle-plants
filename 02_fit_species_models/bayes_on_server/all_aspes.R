@@ -35,7 +35,7 @@ gero.valid = all.sp %>% filter(species %in% 'GEROT' & year %in% 2016:2018) %>% m
 dece.e = stan_glmer(cbind(n.obs, 100 - n.obs) ~ asp.e + (1 | plot) + (1 | year) + (1 | obsno),
                     family = 'binomial',
                     cores = 4,
-                    seed = 2009210,
+                    seed = 3009210,
                     data = dece.train)
 print('deschampsia')
 
@@ -43,7 +43,7 @@ print('deschampsia')
 dece.pred = posterior_predict(dece.e, newdata = dece.valid,
                               re.form = ~ (1 | plot),
                               seed = 3515,
-                              draws = 1000)
+                              draws = 4000)
 
 # Generate summary statistics for posterior draws
 dece.pred.summ = dece.pred %>%
@@ -55,7 +55,9 @@ dece.pred.summ = dece.pred %>%
   summarise(yhat_mean = mean(pred),
             yhat_medn = median(pred),
             yhat_q975 = quantile(pred, 0.975),
-            yhat_q025 = quantile(pred, 0.025)) %>%
+            yhat_q025 = quantile(pred, 0.025),
+            yhat_q841 = quantile(pred, 0.841),
+            yhat_q159 = quantile(pred, 0.159)) %>%
   mutate(sp = 'dece', model = 'aspe')
 
 ### Kobresia
@@ -71,7 +73,7 @@ print('kobresia')
 komy.pred = posterior_predict(komy.e, newdata = komy.valid,
                               re.form = ~ (1 | plot),
                               seed = 19899,
-                              draws = 1000)
+                              draws = 4000)
 
 # Generate summary statistics for posterior draws
 komy.pred.summ = komy.pred %>%
@@ -83,7 +85,9 @@ komy.pred.summ = komy.pred %>%
   summarise(yhat_mean = mean(pred),
             yhat_medn = median(pred),
             yhat_q975 = quantile(pred, 0.975),
-            yhat_q025 = quantile(pred, 0.025)) %>%
+            yhat_q025 = quantile(pred, 0.025),
+            yhat_q841 = quantile(pred, 0.841),
+            yhat_q159 = quantile(pred, 0.159)) %>%
   mutate(sp = 'komy', model = 'aspe')
 
 ### Geum
@@ -99,7 +103,7 @@ print('geum')
 gero.pred = posterior_predict(gero.e, newdata = gero.valid,
                               re.form = ~ (1 | plot),
                               seed = 99,
-                              draws = 1000)
+                              draws = 4000)
 
 # Generate summary statistics for posterior draws
 gero.pred.summ = gero.pred %>%
@@ -111,10 +115,17 @@ gero.pred.summ = gero.pred %>%
   summarise(yhat_mean = mean(pred),
             yhat_medn = median(pred),
             yhat_q975 = quantile(pred, 0.975),
-            yhat_q025 = quantile(pred, 0.025)) %>%
+            yhat_q025 = quantile(pred, 0.025),
+            yhat_q841 = quantile(pred, 0.841),
+            yhat_q159 = quantile(pred, 0.159)) %>%
   mutate(sp = 'gero', model = 'aspe')
 
-write.csv(rbind(dece.pred.summ, komy.pred.summ, gero.pred.summ),
+write.csv(rbind(dece.pred.summ %>%
+                  mutate(loglik = log_lik(dece.e) %>% apply(1, sum) %>% mean()), 
+                komy.pred.summ %>%
+                  mutate(loglik = log_lik(komy.e) %>% apply(1, sum) %>% mean()), 
+                gero.pred.summ %>%
+                  mutate(loglik = log_lik(gero.e) %>% apply(1, sum) %>% mean())),
           row.names = FALSE,
           file = 'output/all_aspe_summary.csv')
 

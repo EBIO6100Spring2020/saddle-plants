@@ -43,7 +43,7 @@ print('deschampsia')
 dece.null.pred = posterior_predict(dece.null, newdata = dece.valid,
                                    re.form = ~ (1 | plot),
                                    seed = 1009,
-                                   draws = 1000)
+                                   draws = 4000)
 
 # Generate summary statistics for posterior draws
 dece.pred.summ = dece.null.pred %>%
@@ -55,7 +55,9 @@ dece.pred.summ = dece.null.pred %>%
   summarise(yhat_mean = mean(pred),
             yhat_medn = median(pred),
             yhat_q975 = quantile(pred, 0.975),
-            yhat_q025 = quantile(pred, 0.025)) %>%
+            yhat_q025 = quantile(pred, 0.025),
+            yhat_q841 = quantile(pred, 0.841),
+            yhat_q159 = quantile(pred, 0.159)) %>%
   mutate(sp = 'dece', model = 'null')
 
 ### Kobresia
@@ -71,7 +73,7 @@ print('kobresia')
 komy.null.pred = posterior_predict(komy.null, newdata = komy.valid,
                                    re.form = ~ (1 | plot),
                                    seed = 14459,
-                                   draws = 1000)
+                                   draws = 4000)
 
 # Generate summary statistics for posterior draws
 komy.pred.summ = komy.null.pred %>%
@@ -83,7 +85,9 @@ komy.pred.summ = komy.null.pred %>%
   summarise(yhat_mean = mean(pred),
             yhat_medn = median(pred),
             yhat_q975 = quantile(pred, 0.975),
-            yhat_q025 = quantile(pred, 0.025)) %>%
+            yhat_q025 = quantile(pred, 0.025),
+            yhat_q841 = quantile(pred, 0.841),
+            yhat_q159 = quantile(pred, 0.159)) %>%
   mutate(sp = 'komy', model = 'null')
 
 ### Geum
@@ -99,7 +103,7 @@ print('geum')
 gero.null.pred = posterior_predict(gero.null, newdata = gero.valid,
                                    re.form = ~ (1 | plot),
                                    seed = 90009,
-                                   draws = 1000)
+                                   draws = 4000)
 
 # Generate summary statistics for posterior draws
 gero.pred.summ = gero.null.pred %>%
@@ -111,9 +115,18 @@ gero.pred.summ = gero.null.pred %>%
   summarise(yhat_mean = mean(pred),
             yhat_medn = median(pred),
             yhat_q975 = quantile(pred, 0.975),
-            yhat_q025 = quantile(pred, 0.025)) %>%
+            yhat_q025 = quantile(pred, 0.025),
+            yhat_q841 = quantile(pred, 0.841),
+            yhat_q159 = quantile(pred, 0.159)) %>%
   mutate(sp = 'gero', model = 'null')
 
-write.csv(rbind(dece.pred.summ, komy.pred.summ, gero.pred.summ),
+write.csv(rbind(dece.pred.summ %>% 
+                  mutate(loglik = log_lik(dece.null) %>% apply(1, sum) %>% mean()),
+                komy.pred.summ %>%
+                  mutate(loglik = log_lik(komy.null) %>% apply(1, sum) %>% mean()), 
+                gero.pred.summ %>%
+                  mutate(loglik = log_lik(gero.null) %>% apply(1, sum) %>% mean())),
           row.names = FALSE,
           file = 'output/all_null_summary.csv')
+
+save(dece.null, komy.null, gero.null, file = 'output/all_nulls.RData')
