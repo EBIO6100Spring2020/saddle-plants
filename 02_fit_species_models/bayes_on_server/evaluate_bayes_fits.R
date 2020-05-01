@@ -27,8 +27,13 @@ gero.valid = all.sp %>% filter(species %in% 'GEROT' & year %in% 2016:2018) %>% m
 
 ##### Some aux functions
 
-eval_ci = function(x) {
+eval_95ci = function(x) {
   with(x, table(n.obs >= yhat_q025, n.obs <= yhat_q975, 
+                dnn = list('over025', 'under975')) / length(obsno))
+}
+
+eval_68ci = function(x) {
+  with(x, table(n.obs >= yhat_q159, n.obs <= yhat_q841, 
                 dnn = list('over025', 'under975')) / length(obsno))
 }
 
@@ -41,7 +46,9 @@ all.aspes = read.csv('02_fit_species_models/bayes_on_server/model_preds/all_aspe
 all.en = read.csv('02_fit_species_models/bayes_on_server/model_preds/all_aspen_summary.csv')
 all.ec = read.csv('02_fit_species_models/bayes_on_server/model_preds/all_aspe_slope_summary.csv')
 dece.temp = read.csv('02_fit_species_models/bayes_on_server/model_preds/dece_temp_summary.csv')
-koge.temp = read.csv('02_fit_species_models/bayes_on_server/model_preds/komy_gero_summary.csv')
+koge.temp = read.csv('02_fit_species_models/bayes_on_server/model_preds/komy_gero_temp_summary.csv')
+all.nitrs = read.csv('02_fit_species_models/bayes_on_server/model_preds/all_nitr_summary.csv')
+all.ph = read.csv('02_fit_species_models/bayes_on_server/model_preds/all_ph_summary.csv')
 
 head(all.aspes)
 
@@ -51,46 +58,57 @@ head(all.aspes)
 dece.null = merge(dece.valid, all.nulls %>% filter(sp %in% 'dece'),
                   by.x = 'obsno', by.y = 'i')
 
-rmse(dece.null)
-# 14.942
-eval_ci(dece.null)
-# 78.8 in confidence intervl
+rmse(dece.null) # 14.889
+eval_95ci(dece.null) # 79.2
+eval_68ci(dece.null) # 63.6
+-2 * dece.null$loglik[1] # 2088.213
+
+# Models are overestimating
 
 ### Easting model
 dece.aspe = merge(dece.valid, all.aspes %>% filter(sp %in% 'dece'),
                   by.x = 'obsno', by.y = 'i')
 
-rmse(dece.aspe)
-# 14.637
-eval_ci(dece.aspe)
-# 79.2
+rmse(dece.aspe) # 14.608
+eval_95ci(dece.aspe) # 79.9
+eval_68ci(dece.aspe) # 64.8
+-2 * dece.aspe$loglik[1] # 2089.216
+
+# Slight decrease in RMSE, v. slight increase in deviance
+# Slight improvement in CIs
+# Models are still overestimating
+# Keep Easting
 
 ### Easting + Northing model
 dece.enf = merge(dece.valid, all.en %>% filter(sp %in% 'dece'),
                 by.x = 'obsno', by.y = 'i')
 
-rmse(dece.enf)
-# 14.523
-eval_ci(dece.enf)
-# 79.2
+rmse(dece.enf) # 14.298
+eval_95ci(dece.enf) # 79.5
+eval_68ci(dece.enf) # 65.2
+-2 * dece.enf$loglik[1] # 2090.79
+
+# slight decrease in RMSE
+# slight decrease in 95% CI
+# but increase in 68 CI, deviance
 
 dece.ecf = merge(dece.valid, all.ec %>% filter(sp %in% 'dece'),
                  by.x = 'obsno', by.y = 'i')
 
-rmse(dece.ecf)
-# 14.810
-eval_ci(dece.ecf)
-# 80.3
+rmse(dece.ecf) # 14.810
+eval_95ci(dece.ecf) # 79.9
+eval_68ci(dece.ecf) # 64.0
+-2 * dece.ecf$loglik[1] # 2092.542
 
 ### Slope + jja3 model
 
 dece.sj3 = merge(dece.valid, dece.temp %>% filter(model %in% 'slope.jja3'),
                  by.x = 'obsno', by.y = 'i')
 
-rmse(dece.sj3)
-# 22.45 ...?
-eval_ci(dece.sj3)
-# 78%
+rmse(dece.sj3) # 22.25 ...?
+eval_95ci(dece.sj3) # 79.9%
+eval_68ci(dece.sj3) # 63.3%
+-2 * dece.sj3$loglik[1] # 2090.80
 
 # This model is much worse??
 
@@ -99,31 +117,52 @@ eval_ci(dece.sj3)
 dece.nj3 = merge(dece.valid, dece.temp %>% filter(model %in% 'noslope.jja3'),
                  by.x = 'obsno', by.y = 'i')
 
-rmse(dece.nj3)
-# 23.04
-eval_ci(dece.nj3)
-# 76%
+rmse(dece.nj3) # 22.70
+eval_95ci(dece.nj3) # 77.6%
+eval_68ci(dece.nj3) # 62.8%
+-2 * dece.nj3$loglik[1] # 20.89
+
+# much worse
 
 ### Slope + jja1 model
 
 dece.sj1 = merge(dece.valid, dece.temp %>% filter(model %in% 'slope.jja1'),
                  by.x = 'obsno', by.y = 'i')
 
-rmse(dece.sj1)
-# 8.41
-# WHAT
-eval_ci(dece.sj1)
-# 84.8%
+rmse(dece.sj1) # 8.07 # WHAT
+eval_95ci(dece.sj1) # 85.2%
+eval_68ci(dece.sj1) # 71.5%
+-2 * dece.sj1$loglik[1] # 2091.5
 
 # WHAT
 
 dece.nj1 = merge(dece.valid, dece.temp %>% filter(model %in% 'noslope.jja1'),
                  by.x = 'obsno', by.y = 'i')
 
-rmse(dece.nj1)
-# 8.27
-eval_ci(dece.nj1)
-# 84.5%
+rmse(dece.nj1) # 7.95
+eval_95ci(dece.nj1) # 84.9%
+eval_68ci(dece.nj1) # 72.3%
+-2 * dece.nj1$loglik[1] # 2089.12
+
+### A model with Nitrogen
+
+dece.nitr = merge(dece.valid, all.nitrs %>% filter(sp %in% 'dece'),
+                  by.x = 'obsno', by.y = 'i')
+
+rmse(dece.nitr) # 7.79
+eval_95ci(dece.nitr) # 84.8%
+eval_68ci(dece.nitr) # 71.9%
+-2 * dece.nitr$loglik[1] # 2090.12
+
+### Model with pH
+
+dece.phs = merge(dece.valid, all.ph %>% filter(sp %in% 'dece'),
+                 by.x = 'obsno', by.y = 'i')
+
+rmse(dece.phs) # 0.005
+eval_95ci(dece.phs) # 92.0%
+eval_68ci(dece.nitr) # 71.5%
+-2 * dece.nitr$loglik[1] # 2090.929
 
 ##### Kobresia models
 
@@ -131,17 +170,16 @@ eval_ci(dece.nj1)
 komy.null = merge(komy.valid, all.nulls %>% filter(sp %in% 'komy'),
                   by.x = 'obsno', by.y = 'i')
 
-rmse(komy.null)
-# 3.72
-eval_ci(komy.null)
-# 93.1%
+rmse(komy.null) # 3.79
+eval_95ci(komy.null) # 93.1%
+eval_68ci(komy.null) # 81.8%
+-2 * komy.null$loglik[1] # 1299.86
 
 ### Easting model
 komy.aspe = merge(komy.valid, all.aspes %>% filter(sp %in% 'komy'),
                   by.x = 'obsno', by.y = 'i')
 
-rmse(komy.aspe)
-# 3.78
+rmse(komy.aspe) # 3.67
 eval_ci(komy.aspe)
 # 92.0%
 
@@ -149,18 +187,19 @@ eval_ci(komy.aspe)
 komy.enf = merge(komy.valid, all.en %>% filter(sp %in% 'komy'),
                 by.x = 'obsno', by.y = 'i')
 
-rmse(komy.enf)
-# 3.78
-eval_ci(komy.enf)
-# 92.8
+rmse(komy.enf) # 3.74
+eval_95ci(komy.enf) # 93.1
+eval_68ci(komy.enf) # 81.4%
+-2 * komy.enf$loglik[1] # 1300.6
 
+# Easting plus slope model
 komy.ecf = merge(komy.valid, all.ec %>% filter(sp %in% 'komy'),
                  by.x = 'obsno', by.y = 'i')
 
-rmse(komy.ecf)
-# 3.65
-eval_ci(komy.ecf)
-# 92.8
+rmse(komy.ecf) # 3.65
+eval_95ci(komy.ecf) # 93.5
+eval_68ci(komy.ecf) # 82.1
+-2 * komy.ecf$loglik[1] # 1301.16
 
 ### Try Kobresia model with easting and jja2
 
@@ -168,10 +207,10 @@ komy.ej2 = merge(komy.valid, koge.temp %>%
                    filter(sp %in% 'komy' & model %in% 'easting.jja2'),
                  by.x = 'obsno', by.y = 'i')
 
-rmse(komy.ej2)
-# 7.331
-eval_ci(komy.ej2)
-# 92.4
+rmse(komy.ej2) # 7.48
+eval_95ci(komy.ej2) # 93.1
+eval_68ci(komy.ej2) # 80.3
+-2 * komy.ej2$loglik[1] # 1301.938
 
 ### Kobresia model without easting but with jja2
 
@@ -179,13 +218,34 @@ komy.nj2 = merge(komy.valid, koge.temp %>%
                    filter(sp %in% 'komy' & model %in% 'noeasting.jja2'),
                  by.x = 'obsno', by.y = 'i')
 
-rmse(komy.nj2)
-# 7.237
-eval_ci(komy.ej2)
-# 92.4
+rmse(komy.nj2) # 7.26
+eval_95ci(komy.ej2) # 92.4
+eval_68ci(komy.ej2) # 80.3
+-2 * komy.nj2$loglik[1] # 1300.6
 
-# doesn't suggest to me that we should include temperature here
-# (surprising!)
+### A model with Nitrogen
+
+komy.nitr = merge(komy.valid, all.nitrs %>% filter(sp %in% 'komy'),
+                  by.x = 'obsno', by.y = 'i')
+
+rmse(komy.nitr) # 0.90
+eval_95ci(komy.nitr) # 96.2%
+eval_68ci(komy.nitr) # 90.1%
+-2 * komy.nitr$loglik[1] # 2090.92
+
+# Well, it looks like N is a good predictor of N abundance
+
+### A model with pH (and Nitrogen)
+
+komy.phs = merge(komy.valid, all.ph %>% filter(sp %in% 'komy'),
+                 by.x = 'obsno', by.y = 'i')
+
+rmse(komy.phs) # 0.207
+eval_95ci(komy.nitr) # 96.3%
+eval_68ci(komy.nitr) # 90.2%
+# deviance doesn't matter lolz
+
+# apparently we should also include pH
 
 ##### Geum models
 
@@ -193,46 +253,68 @@ eval_ci(komy.ej2)
 gero.null = merge(gero.valid, all.nulls %>% filter(sp %in% 'gero'),
                   by.x = 'obsno', by.y = 'i')
 
-rmse(gero.null)
-# 0.007 (wow)
-eval_ci(gero.null)
-# 92.8%
+rmse(gero.null) # 0.009 (wow)
+eval_95ci(gero.null) # 93.1%
+eval_68ci(gero.null) # 67.0% (right on)
+-2 * gero.null$loglik[1] # 3604.2
 
 ### Easting model
 gero.aspe = merge(gero.valid, all.aspes %>% filter(sp %in% 'gero'),
                   by.x = 'obsno', by.y = 'i')
 
-rmse(gero.aspe)
-# 0.011
-eval_ci(gero.aspe)
-# 92.8%
+rmse(gero.aspe) # 0.011
+eval_95ci(gero.aspe) # 93.1%
+eval_68ci(gero.aspe) # 67.0
+-2 * gero.aspe$loglik[1] # 3604.6
 
+### Easting + Northing
 gero.enf = merge(gero.valid, all.en %>% filter(sp %in% 'gero'),
                  by.x = 'obsno', by.y = 'i')
 
-rmse(gero.enf)
-# 0.076
-eval_ci(gero.enf)
-# 93.1
+rmse(gero.enf) # 0.011
+eval_95ci(gero.enf) # 93.2
+eval_68ci(gero.enf) # 66.6
+-2 * gero.enf$loglik[1] # 3602.94
 
 gero.ecf = merge(gero.valid, all.ec %>% filter(sp %in% 'gero'),
                  by.x = 'obsno', by.y = 'i')
 
-rmse(gero.ecf)
-# 0.014
-eval_ci(gero.ecf)
-# 92.8
+rmse(gero.ecf) # 0.010
+eval_95ci(gero.ecf) # 93.2
+eval_68ci(gero.ecf) # 67.8
+-2 * gero.ecf$loglik[1] # 3603.9
 
 ### Geum model with jja3
 
 gero.ja3 = merge(gero.valid, koge.temp %>% 
                    filter(sp %in% 'gero' & model %in% 'jja3'))
 
-rmse(gero.ja3)
-# 1.935
-eval_ci(gero.ja3)
-# holy shit 31%
-# holy shit
+rmse(gero.ja3) # 1.935
+eval_95ci(gero.ja3) # holy shit 31% that is awful
+eval_68ci(gero.ja3) # 18
+-2 * gero.ja3$loglik[1] # 3603.6
+
+# holy shit what a bad model
+
+### A model with Nitrogen
+
+gero.nitr = merge(gero.valid, all.nitrs %>% filter(sp %in% 'gero'),
+                  by.x = 'obsno', by.y = 'i')
+
+rmse(gero.nitr) # 0.039
+eval_95ci(gero.nitr) # 93.1%
+eval_68ci(gero.nitr) # 68.1%
+-2 * gero.nitr$loglik[1] # 2090.92
+
+# A model with pH (but no Nitrogen)
+
+gero.phs = merge(gero.valid, all.nitrs %>% filter(sp %in% 'gero'),
+                 by.x = 'obsno', by.y = 'i')
+
+rmse(gero.phs) # 0.039
+eval_95ci(gero.nitr) # 93.1%
+eval_68ci(gero.nitr) # 68.1%
+# no added benefit of adding ph (lmao)
 
 ##### Variance partitioning.
 
@@ -337,6 +419,15 @@ d.nsp.ja1
 # same result here
 # year-level varance is also about the same...
 
+### Nitrogen models
+
+load('02_fit_species_models/bayes_on_server/models/all_nitrs.RData')
+
+dece.nitr
+
+komy.nitr
+
+gero.nitr
 
 ####### Visualizing model fits
 
@@ -368,6 +459,20 @@ dece.valid %>%
   mutate(j = 1:nrow(.)) %>%
   ggplot() +
   geom_segment(aes(x = j, xend = j, y = yhat_q025, yend = yhat_q975),
+               size = 0.5, colour = 'orange', lineend = 'square') +
+  geom_point(aes(x = j, y = yhat_medn), colour = 'orange') +
+  geom_point(aes(x = j, y = n.obs), colour = 'blue', alpha = 0.25)
+
+# Deschampsia with Nitrogen
+
+dece.valid %>%
+  select(obsno, n.obs) %>%
+  rename(i = obsno) %>%
+  merge(y = all.nitrs %>% filter(sp %in% 'dece')) %>%
+  arrange(desc(yhat_medn)) %>%
+  mutate(j = 1:nrow(.)) %>%
+  ggplot() +
+  geom_segment(aes(x = j, xend = j, y = yhat_q159, yend = yhat_q841),
                size = 0.5, colour = 'orange', lineend = 'square') +
   geom_point(aes(x = j, y = yhat_medn), colour = 'orange') +
   geom_point(aes(x = j, y = n.obs), colour = 'blue', alpha = 0.25)
@@ -414,6 +519,30 @@ dece.valid %>%
 # well, this shows the bias pretty well.
 # but it illustrates the differences in models well enough.
 
+dece.valid %>%
+  select(obsno, n.obs) %>%
+  rename(i = obsno) %>%
+  merge(y = rbind(
+    all.nitrs %>% filter(sp %in% 'dece'),
+    all.ph %>% filter(sp %in% 'dece') %>% mutate(model = 'ph'),
+    all.ec %>% filter(sp %in% 'dece')
+  ),
+  by = 'i') %>%
+  mutate(nobs_jit = n.obs + ifelse(model %in% 'aspen', -0.25,
+                                   ifelse(model %in% 'ph', 0, 0.25))) %>%
+  ggplot() +
+  geom_segment(aes(x = 0, xend = 82, y = 0, yend = 82)) +
+  geom_point(aes(x = nobs_jit, y = yhat_mean, 
+                 group = model, 
+                 colour = model),
+             alpha = 0.5) +
+  geom_segment(aes(x = nobs_jit, xend = nobs_jit,
+                   y = yhat_mean, yend = nobs_jit,
+                   colour = model),
+               size = 0.15)
+
+# yep... pH definitely means we're no longer overshooting on average
+
 ### Kobresia fits
 komy.valid %>%
   select(obsno, n.obs) %>%
@@ -427,6 +556,30 @@ komy.valid %>%
   geom_point(aes(x = j, y = yhat_medn), colour = 'orange') +
   geom_point(aes(x = j, y = n.obs), colour = 'blue', alpha = 0.25)  
 # Still looks biased high.
+
+komy.valid %>%
+  select(obsno, n.obs) %>%
+  rename(i = obsno) %>%
+  merge(y = rbind(
+    all.nitrs %>% filter(sp %in% 'komy'),
+    all.ph %>% filter(sp %in% 'komy') %>% mutate(model = 'ph'),
+    all.nulls %>% filter(sp %in% 'komy')
+  ),
+  by = 'i') %>%
+  mutate(nobs_jit = n.obs + ifelse(model %in% 'null', -0.25,
+                                   ifelse(model %in% 'ph', 0, 0.25))) %>%
+  ggplot() +
+  geom_segment(aes(x = 0, xend = 82, y = 0, yend = 82)) +
+  geom_point(aes(x = nobs_jit, y = yhat_mean, 
+                 group = model, 
+                 colour = model),
+             alpha = 0.5) +
+  geom_segment(aes(x = nobs_jit, xend = nobs_jit,
+                   y = yhat_mean, yend = nobs_jit,
+                   colour = model),
+               size = 0.15)
+# damn wut this is actually v. good
+# what the fuck changed?
 
 ### Geum fits
 gero.valid %>%
