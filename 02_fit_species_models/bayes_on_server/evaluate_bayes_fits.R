@@ -429,6 +429,47 @@ komy.nitr
 
 gero.nitr
 
+### pH models
+
+load('02_fit_species_models/bayes_on_server/models/all_phs.RData')
+
+summary(dece.ph)
+#                                       mean   sd    10%   50%   90%
+# (Intercept)                          -13.1    2.4 -16.1 -13.1 -10.1
+# asp.e                                  2.4    0.7   1.5   2.4   3.3
+# jja_mean1                             -0.1    0.1  -0.2  -0.1  -0.1
+# pH                                     1.4    0.4   0.9   1.4   1.9
+
+# Error terms:  
+# Groups Name        Std.Dev.
+# obsno  (Intercept) 0.33    
+# plot   (Intercept) 3.93    
+# year   (Intercept) 0.20  
+
+summary(komy.ph)
+#                                         mean   sd    10%   50%   90%
+# (Intercept)                          -16.6    3.9 -21.4 -16.7 -11.9
+# Total_N                               -1.0    0.7  -1.8  -1.0  -0.1
+# pH                                     1.4    0.6   0.7   1.4   2.2
+
+# Error terms:
+# Groups Name        Std.Dev.
+# obsno  (Intercept) 0.30    
+# plot   (Intercept) 6.74    
+# year   (Intercept) 0.25   
+
+summary(gero.ph)
+#                                       mean   sd   10%   50%   90%
+# (Intercept)                          -1.3    1.2 -2.8  -1.3   0.1 
+# pH                                   -0.3    0.2 -0.6  -0.3  -0.1
+
+# Error terms:
+# Groups Name        Std.Dev.
+# obsno  (Intercept) 0.18    
+# plot   (Intercept) 2.26    
+# year   (Intercept) 0.10 
+
+
 ####### Visualizing model fits
 
 rbind(all.nulls, all.aspes, all.en) %>%
