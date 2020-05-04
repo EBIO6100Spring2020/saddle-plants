@@ -49,6 +49,7 @@ dece.temp = read.csv('02_fit_species_models/bayes_on_server/model_preds/dece_tem
 koge.temp = read.csv('02_fit_species_models/bayes_on_server/model_preds/komy_gero_temp_summary.csv')
 all.nitrs = read.csv('02_fit_species_models/bayes_on_server/model_preds/all_nitr_summary.csv')
 all.ph = read.csv('02_fit_species_models/bayes_on_server/model_preds/all_ph_summary.csv')
+all.cl = read.csv('02_fit_species_models/bayes_on_server/model_preds/all_cl_summary.csv')
 
 head(all.aspes)
 
@@ -161,8 +162,20 @@ dece.phs = merge(dece.valid, all.ph %>% filter(sp %in% 'dece'),
 
 rmse(dece.phs) # 0.005
 eval_95ci(dece.phs) # 92.0%
-eval_68ci(dece.nitr) # 71.5%
--2 * dece.nitr$loglik[1] # 2090.929
+eval_68ci(dece.phs) # 71.5%
+-2 * dece.cl$loglik[1] # 2090.929
+
+### Model with Chlorine
+
+dece.cl = merge(dece.valid, all.cl %>% filter(sp %in% 'dece'),
+                by.x = 'obsno', by.y = 'i')
+
+rmse(dece.cl) # 1.993
+eval_95ci(dece.cl) # 91.6%
+eval_68ci(dece.cl) # 77.6
+-2 * dece.cl$loglik[1] # 2089
+
+# No Chlorine for DECE
 
 ##### Kobresia models
 
@@ -245,6 +258,15 @@ eval_95ci(komy.nitr) # 96.3%
 eval_68ci(komy.nitr) # 90.2%
 # deviance doesn't matter lolz
 
+komy.cl = merge(komy.valid, all.cl %>% filter(sp %in% 'komy'),
+                by.x = 'obsno', by.y = 'i')
+
+rmse(komy.cl) # 0.042 # wow...
+eval_95ci(komy.cl) # 97.3%
+eval_68ci(komy.cl) # 95.45 (wow.)
+
+# okay... keep chlorine for KOMY
+
 # apparently we should also include pH
 
 ##### Geum models
@@ -308,13 +330,24 @@ eval_68ci(gero.nitr) # 68.1%
 
 # A model with pH (but no Nitrogen)
 
-gero.phs = merge(gero.valid, all.nitrs %>% filter(sp %in% 'gero'),
+gero.phs = merge(gero.valid, all.ph %>% filter(sp %in% 'gero'),
                  by.x = 'obsno', by.y = 'i')
 
-rmse(gero.phs) # 0.039
-eval_95ci(gero.nitr) # 93.1%
-eval_68ci(gero.nitr) # 68.1%
+rmse(gero.phs) # 0.558
+eval_95ci(gero.phs) # 92.1%
+eval_68ci(gero.phs) # 69.3%
 # no added benefit of adding ph (lmao)
+
+### A Geum model with Chlorine
+
+gero.cl = merge(gero.valid, all.cl %>% filter(sp %in% 'gero'),
+                by.x = 'obsno', by.y = 'i')
+
+rmse(gero.cl) # 0.011 # same as bad models above
+eval_95ci(gero.cl) # 92.4
+eval_68ci(gero.cl) # 69.3
+
+# don't add chlorine
 
 ##### Variance partitioning.
 
@@ -469,6 +502,39 @@ summary(gero.ph)
 # plot   (Intercept) 2.26    
 # year   (Intercept) 0.10 
 
+### Chlorine models
+
+load('02_fit_species_models/bayes_on_server/models/all_chlorines.RData')
+
+komy.cl
+#             Median MAD_SD
+# (Intercept) -14.1    4.5 
+# Total_N      -0.8    0.7 
+# pH            1.0    0.7 
+# Cl           -6.2    6.3 
+# 
+# Error terms:
+# Groups Name        Std.Dev.
+# obsno  (Intercept) 0.30    
+# plot   (Intercept) 6.74    
+# year   (Intercept) 0.27  
+
+# appears n.s...., year variance is same
+# ??? spurious?
+
+gero.cl
+
+#             Median MAD_SD
+# (Intercept) -3.1    0.3  
+# Cl           2.3    1.8  
+# 
+# Error terms:
+# Groups Name        Std.Dev.
+# obsno  (Intercept) 0.18    
+# plot   (Intercept) 2.27    
+# year   (Intercept) 0.11 
+
+# also not a much better model...
 
 ####### Visualizing model fits
 
