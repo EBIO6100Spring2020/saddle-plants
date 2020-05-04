@@ -24,9 +24,11 @@ spatial.data2 = read.csv('HMSC_saddle/saddle_topo_solar.csv')
 # Maximum snow depth associated with each point, 1993 - 2019
 max.snow = read.csv('01_process_data/output/nwt_saddle_max_snowdepth.csv')
 
+# Mean snowdepth in June for each plot in each year
+jun.snow = read.csv('01_process_data/output/june_snow_measurements.csv')
+
 # NDVI calculated by Sean
 ndvi.data = read.csv('00_raw_data/avg_NDVI_stake_values2.csv')
-# I'm not sure what is going on in here.
 
 # Nitrogen data by water year
 nitrogen = read.csv('00_raw_data/nitrogen/Niwot_water_year_concentration_data.csv')
@@ -36,6 +38,7 @@ npp.data = read.csv('01_process_data/output/saddle_npp.csv')
 
 # All temperature data
 all.temp = read.csv('01_process_data/output/annual_temperatures.csv')
+
 
 ##### Generate plot-level summary statistics
 
@@ -122,6 +125,13 @@ spatial.data2 = spatial.data2 %>%
          slope2 = Slope,
          asp2 = Aspect)
 
+# June snow data frame
+# add a log plus 1 column
+jun.snow = jun.snow %>%
+  mutate(jun.snow.lp1 = log(mean.jun.d + 1)) %>%
+  rename(jun.snow = mean.jun.d) %>%
+  select(-c(n.jun.meas, max.jun.day, min.jun.day))
+
 ##### Now, merge in the number of observations with the relevant plot-level predictorss.
 
 veg.n.all = veg.n.obs %>%
@@ -133,6 +143,9 @@ veg.n.all = veg.n.obs %>%
         all.x = TRUE) %>%
   merge(y = max.snow, 
         by.x = c("plot", "year"), by.y = c("point_ID", "season"),
+        all.x = TRUE) %>%
+  merge(y = jun.snow,
+        by.x = c("plot", "year"), by.y = c("point_ID", "year"),
         all.x = TRUE) %>%
   merge(y = npp.clean,
         by.x = c('plot', 'year'), by.y = c('plotid', 'year'),
