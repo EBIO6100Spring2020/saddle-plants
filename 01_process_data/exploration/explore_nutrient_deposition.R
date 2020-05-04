@@ -92,3 +92,22 @@ ggnut +
   geom_line(aes(y = pH), colour = 'purple')
 # Also not correlated
 
+nut.ph.long = nutri.c %>%
+  select(-c(Criteria1, Criteria2, Criteria3, siteID, seas, 
+            fullChemLab, daysSample, startDate, lastDate)) %>%
+  gather(key = nutr, value = meas, -c(yr, pH))
+
+ggplot(nut.ph.long %>% filter(!nutr %in% 'Br'), aes(x = pH)) +
+  geom_line(aes(y = meas, group = nutr, colour = nutr), size = 1.2) +
+  scale_color_manual(values = RColorBrewer::brewer.pal(n = 12, 'Set3')) +
+  theme(panel.grid = element_blank(),
+        panel.background = element_rect(fill = 'gray44'))
+
+ggplot(nut.ph.long %>% filter(!nutr %in% 'Br'), aes(x = pH, y  = meas)) +
+  geom_smooth(method = 'lm', colour = 'gray88') +
+  geom_point(aes(colour = nutr), size = 1.2) +
+  scale_color_manual(values = RColorBrewer::brewer.pal(n = 12, 'Set3')) +
+  theme(panel.grid = element_blank(),
+        panel.background = element_rect(fill = 'gray44'),
+        legend.position = 'none') +
+  facet_wrap(~ nutr)
