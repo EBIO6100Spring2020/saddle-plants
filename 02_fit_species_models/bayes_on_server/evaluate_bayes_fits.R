@@ -50,6 +50,8 @@ koge.temp = read.csv('02_fit_species_models/bayes_on_server/model_preds/komy_ger
 all.nitrs = read.csv('02_fit_species_models/bayes_on_server/model_preds/all_nitr_summary.csv')
 all.ph = read.csv('02_fit_species_models/bayes_on_server/model_preds/all_ph_summary.csv')
 all.cl = read.csv('02_fit_species_models/bayes_on_server/model_preds/all_cl_summary.csv')
+all.mxsn = read.csv('02_fit_species_models/bayes_on_server/model_preds/all_max_snow_summary.csv')
+all.lxsn = read.csv('02_fit_species_models/bayes_on_server/model_preds/all_log_max_snow_summary.csv')
 
 head(all.aspes)
 
@@ -177,6 +179,25 @@ eval_68ci(dece.cl) # 77.6
 
 # No Chlorine for DECE
 
+### Model with max snow
+dece.mxsn = merge(dece.valid, all.mxsn %>% filter(sp %in% 'dece'),
+                  by.x = 'obsno', by.y = 'i')
+
+rmse(dece.mxsn) # 0.014 (larger than ph only)
+eval_95ci(dece.mxsn) # 91.2
+eval_68ci(dece.mxsn) # 78
+
+# don't add max snow
+
+### Model with log of max snow
+
+dece.lxsn = merge(dece.valid, all.lxsn %>% filter(sp %in% 'dece'),
+                  by.x = 'obsno', by.y = 'i')
+
+rmse(dece.lxsn) # 0.0011 ... wow! holy fuck.
+eval_95ci(dece.lxsn) # 92.0%
+eval_68ci(dece.lxsn) # 78.4%
+
 ##### Kobresia models
 
 ### Null model
@@ -265,9 +286,27 @@ rmse(komy.cl) # 0.042 # wow...
 eval_95ci(komy.cl) # 97.3%
 eval_68ci(komy.cl) # 95.45 (wow.)
 
-# okay... keep chlorine for KOMY
+# keep chlorine for KOMY??
 
-# apparently we should also include pH
+### Kobresia model with max snow (no Cl)
+
+komy.mxsn = merge(komy.valid, all.mxsn %>% filter(sp %in% 'komy'),
+                  by.x = 'obsno', by.y = 'i')
+
+rmse(komy.mxsn) # 0.213 # no improvement over ph only
+eval_95ci(komy.mxsn) # 97.9
+eval_68ci(komy.mxsn) # 92.8
+
+### Kobresia model with log max snow (no Cl)
+
+komy.lxsn = merge(komy.valid, all.lxsn %>% filter(sp %in% 'komy'),
+                  by.x = 'obsno', by.y = 'i')
+
+rmse(komy.lxsn) # 0.220 (also bad)
+eval_95ci(komy.lxsn) # 97.3
+eval_68ci(komy.lxsn) # 92.4
+
+# don't do log max snow either
 
 ##### Geum models
 
@@ -348,6 +387,20 @@ eval_95ci(gero.cl) # 92.4
 eval_68ci(gero.cl) # 69.3
 
 # don't add chlorine
+
+### A Geum model with max snow
+
+gero.mxsn = merge(gero.valid, all.mxsn %>% filter(sp %in% 'gero'),
+                  by.x = 'obsno', by.y = 'i')
+
+rmse(gero.mxsn) # 0.016 # greater than null
+
+### A Geum model with log max snow
+
+gero.lxsn = merge(gero.valid, all.lxsn %>% filter(sp %in% 'gero'),
+                  by.x = 'obsno', by.y = 'i')
+
+rmse(gero.lxsn) # 0.013 # still larger than null
 
 ##### Variance partitioning.
 
@@ -650,6 +703,31 @@ dece.valid %>%
 
 # yep... pH definitely means we're no longer overshooting on average
 
+# One with N, pH, max snow
+
+dece.valid %>%
+  select(obsno, n.obs) %>%
+  rename(i = obsno) %>%
+  merge(y = rbind(
+    all.lxsn %>% filter(sp %in% 'dece'),
+    all.ph %>% filter(sp %in% 'dece') %>% mutate(model = 'ph'),
+    all.nitrs %>% filter(sp %in% 'dece')
+  ),
+  by = 'i') %>%
+  mutate(nobs_jit = n.obs + ifelse(model %in% 'log.max.snow', -0.25,
+                                   ifelse(model %in% 'ph', 0, 0.25))) %>%
+  ggplot() +
+  geom_segment(aes(x = 0, xend = 82, y = 0, yend = 82)) +
+  geom_point(aes(x = nobs_jit, y = yhat_mean, 
+                 group = model, 
+                 colour = model),
+             alpha = 0.5) +
+  geom_segment(aes(x = nobs_jit, xend = nobs_jit,
+                   y = yhat_mean, yend = nobs_jit,
+                   colour = model),
+               size = 0.15)
+# this does't look that much better to me.
+
 ### Kobresia fits
 komy.valid %>%
   select(obsno, n.obs) %>%
@@ -687,6 +765,30 @@ komy.valid %>%
                size = 0.15)
 # damn wut this is actually v. good
 # what the fuck changed?
+
+# Kobresia with Cl
+
+komy.valid %>%
+  select(obsno, n.obs) %>%
+  rename(i = obsno) %>%
+  merge(y = rbind(
+    all.nitrs %>% filter(sp %in% 'komy'),
+    all.ph %>% filter(sp %in% 'komy') %>% mutate(model = 'ph'),
+    all.cl %>% filter(sp %in% 'komy')
+  ),
+  by = 'i') %>%
+  mutate(nobs_jit = n.obs + ifelse(model %in% 'null', -0.25,
+                                   ifelse(model %in% 'ph', 0, 0.25))) %>%
+  ggplot() +
+  geom_segment(aes(x = 0, xend = 82, y = 0, yend = 82)) +
+  geom_point(aes(x = nobs_jit, y = yhat_mean, 
+                 group = model, 
+                 colour = model),
+             alpha = 0.75) +
+  geom_segment(aes(x = nobs_jit, xend = nobs_jit,
+                   y = yhat_mean, yend = nobs_jit,
+                   colour = model),
+               size = 0.15)
 
 ### Geum fits
 gero.valid %>%
